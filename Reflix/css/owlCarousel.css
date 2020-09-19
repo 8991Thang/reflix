@@ -1,0 +1,202 @@
+*{
+    margin :0;
+    padding :0;
+    box-sizing: border-box;
+} 
+.center{
+    width : 100vw;
+    height : 80%;
+    background-image: url("/img/background/luoi.png");
+    background-color :#cf256f; 
+}
+.center__movie{
+    flex-direction: column;
+    width : 100%;
+    height: auto;
+    display:flex;
+    justify-content : center;
+    align-items : center
+}
+.list-movie{
+    width: 300px;
+    height: 100px;
+    margin-bottom: 83px;
+    position: relative;
+    box-shadow: 2px 5px 3px rgba(0,0,0,.9);
+    transform: skewX(-15deg);
+}
+.list-movie > a {
+    font-weight: 400;
+    font-size: 17pt;
+    color: #fff;
+    display: inline-block;
+    height: 100%;
+    line-height: 89px;
+    text-align: center;
+    border: none;
+    z-index: 9;
+    background: #281a3a;
+    width: 300px;
+    text-decoration: none;
+}
+.list-moive > a > img {
+    vertical-align: middle;
+}
+.center__movie-top{
+    width : 70%;
+    height : 40%;
+    display: flex;
+    flex-direction :row;
+    align-items : center;
+    justify-content : space-around;
+}
+.movie__items-poster {
+    width : 260px;
+    height : 377px;
+    cursor : pointer;
+    
+}
+.movie__items-poster:hover .movie__items-poster-info{
+    z-index : 9;
+    transform : rotateY(360deg)
+}
+.movie__items-poster img{
+    position : absolute;
+    z-index : 3;
+}
+
+.movie__items-poster{
+    box-shadow : 10px 10px 10px black;
+}
+
+.movie__items-poster-info{
+    transition : all 1s ease;
+    width : 260px;
+    height : 377px;
+    background : rgb(255,255,255,0.6);
+    display : flex;
+    flex-direction : column;
+    align-items : center;
+    justify-content : center;
+    position : absolute;
+    z-index : 1;
+    color : black;
+}
+
+.movie__items-poster-info a {
+    margin-bottom : 25px;
+    text-align: center;
+    height : 40px;
+    line-height : 40px;
+    color : white;;
+    text-decoration: none;
+    width : 100px;
+    background : #cf256f;
+    text-transform : uppercase;
+    font-weight : bolder;
+}
+.img-poster{
+    width : 260px !important;
+}
+.movie__items-detail{
+    width : 260px;
+
+    text-align : center;
+    margin-top: 26px;
+}
+.movie__items-detail > h2 > a{
+    color: white;
+    text-transform : uppercase;
+
+    text-decoration: none;
+}
+.border{
+    position: absolute;
+    display: block;
+    width: 149px;
+    left: 90px;
+    bottom: 16px;
+    z-index: 9;
+    height: 2px;
+    background: #ce3e82 !important;
+}
+.owl-prev{
+    left : -30px;
+}
+.owl-next{
+    right : -30px;
+}
+.owl-prev{
+    background-image: url("/img/icons/arrow-left.png") !important;
+    border:none;
+    background-position: center center!important;
+    outline: none !important;
+    position: absolute;
+    top : 38%;
+    background-color: #fff !important;
+    border-radius: 90px;
+    background-size: 35px 30px;
+    background-repeat: no-repeat !important;
+    width: 45px !important;
+    height: 45px;
+    margin: auto;
+    color: transparent;
+    transform: translateY(-50%);
+    z-index: 9;
+    opacity: .9;
+    transition: all .3s ease;
+    left: -45px;
+    
+}
+.owl-next{
+    background-image: url("/img/icons/arrow-right.png") !important;
+    border:none;
+    background-position: center center!important;
+    outline: none !important;
+    position: absolute;
+    top : 38%;
+    background-color: #fff !important;
+    border-radius: 90px;
+    background-size: 35px 30px;
+    background-repeat: no-repeat !important;
+    width: 45px !important;
+    height: 45px;
+    margin: auto;
+    color: transparent;
+    transform: translateY(-50%);
+    z-index: 9;
+    opacity: .9;
+    transition: all .3s ease;
+    right: 10px;
+    
+
+}
+.owl-theme .owl-nav [class*="owl-"]:hover{
+    background-color: transparent;
+}
+/* preloder */
+.ml6 {
+    padding-right: 6px;
+    position: relative;
+    font-weight: 900;
+    font-size: 1em;
+  }
+  
+  .ml6 .text-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-top: 0.2em;
+    padding-right: 0.05em;
+    padding-bottom: 0.1em;
+    overflow: hidden;
+  }
+  
+  .ml6 .letter {
+    display: inline-block;
+    line-height: 1em;
+  }
+.list-movie-text{
+    display: flex !important;
+    justify-content: space-around;
+    align-items: center;
+}

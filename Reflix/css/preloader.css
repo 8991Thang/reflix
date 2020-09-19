@@ -1,0 +1,23 @@
+.preload {
+position: fixed;
+  width: 100%;
+  height: 100vh;
+  background: #77b3d4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 1s ease-in-out 4s;
+  transition-duration: 0.5s;
+    background-image: url('https://cdn.lowgif.com/medium/77fa618ba5f3888d-better-gifs-find-make-share-gfycat-gifs.gif');
+    background-repeat: no-repeat; 
+    background-color: pink;
+    background-position: center;
+    z-index: 999999;
+ }
+ .preload-finish {
+    opacity: 0;
+    pointer-events: none;
+}
+body {
+    user-select: none;
+}
