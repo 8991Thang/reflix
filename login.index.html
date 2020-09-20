@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inknut+Antiqua:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Cantata+One&family=Righteous&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/aeafc74a1b.js" crossorigin="anonymous"></script>
+<style>
+  *{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  </style>
+</head>
+<body>
+    <login-screen></login-screen>
+
+  <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+
+
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyAfXXO4D5G2hqSK0mQOKMYcSjoNod9MLPE",
+    authDomain: "reflixproject.firebaseapp.com",
+    databaseURL: "https://reflixproject.firebaseio.com",
+    projectId: "reflixproject",
+    storageBucket: "reflixproject.appspot.com",
+    messagingSenderId: "361220077013",
+    appId: "1:361220077013:web:610e37a3edf8c96a33395c"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+</script>
+  <script src="/js/screens/index.js" type="module"></script>
+
+</body>
+</html>

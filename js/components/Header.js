@@ -135,9 +135,6 @@ const style = /*html*/`
 	transform:scale(1.2)
 }
 
-.main-menu li a:hover:after {
-	background-image: url("../img/icons/arrow-down-color.png");
-}
 
 .main-menu li a:hover i {
 	color: red;
@@ -153,8 +150,19 @@ const style = /*html*/`
 	color: red;
 }
 
-.main-menu li:hover>a:after {
-	background-image: url("../img/icons/arrow-down-color.png");
+
+.user::after{
+
+    cursor: pointer;
+    position: absolute;
+    content: "";
+    width: 20px;
+    height: 20px;
+    right: -9px;
+    top: 21px;
+    background-image: url(../img/icons/arrow-down.png);
+    background-repeat: no-repeat;
+    background-position: right center;
 }
 
 .main-menu li .sub-menu {
@@ -214,6 +222,78 @@ const style = /*html*/`
 .slicknav_menu {
 	display: none;
 }
+.user{
+	font-weight:700;
+	right: 33px;
+    top: 13px;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.user img{
+	height: 60px;
+	border-radius:50%;
+	width:60px;
+}
+.user div {
+	padding-bottom: 8px;
+}
+.user-menu{
+	margin-top:10px;
+	list-style: none;
+	float:left;
+	position: absolute;
+	text-align : center;
+	right: -15px;
+	top : 170%;
+	background : #302525;
+	border : 1.5px solid white;
+	border-radius : 10px;
+	opacity : 0;
+	transition : all 0.9s ease;
+    <!-- visibility: hidden; -->
+}
+.user-menu li:hover{
+	background:black;
+}
+.user-menu li:first-child{
+	background : blue;
+	border:none;
+	border-radius : 10px 10px 0 0;
+}
+.user-menu li:first-child:hover{
+	background : #003366
+}
+.user:hover .user-menu{
+	top : 100%;
+	opacity : 1;
+}
+.openModal{
+	cursor:pointer;
+}
+.user-menu li:last-child{
+	border-radius : 0 0 10px 10px;
+	background : #FF4646;
+}
+.user-menu li:last-child:hover{
+	background : #A80000 !important;
+}
+.user-menu li {
+	cursor : pointer;
+	font-size:15px;
+	border-top : 1px solid pink;
+	padding-bottom : 17px;
+	display:flex;
+	justify-content:center;
+	align-items: center;
+	height : 90px;
+	width: 105px;
+	padding-right: 10px;
+	padding-top:30px;
+	display: block;
+}
 </style>
 `
 class Header extends BaseComponent {
@@ -222,10 +302,28 @@ class Header extends BaseComponent {
     }
 
     render(){
+		const data = localStorage.getItem("user");
+		const dataConvert = JSON.parse(data);
+		let avatarUser = `
+		<div class="user">
+			<div><img src="${dataConvert.avatar}" alt=""></div>
+			<ul class="openModal">
+			<li>${dataConvert.name}
+			<ul class="user-menu">
+					<li>Hồ Sơ</li>
+					<li>Chỉnh Sửa</li>
+					<li class="log-out">Đăng Xuất</li>
+				</ul>	
+			</li>
+			</ul>	
+		</div>
+		`
+		console.log(data)
+		let userName = (dataConvert == 0) ? ` <a href="/login.index.html">Login</a> / <a href="/register.index.html">Register</a>` :`${avatarUser}`
         this._shadowRoot.innerHTML = /*html*/`
         <!-- Page Preloder -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
 
     ${style} 
 	<div id="preloder">
@@ -246,8 +344,8 @@ class Header extends BaseComponent {
                 <img src="/img/logo/l.png" alt="reflix">
             </a>
             <nav class="top-nav-area w-100">
-                <div class="user-panel">
-                    <a href="">Login</a> / <a href="">Register</a>
+				<div class="user-panel">
+                   ${userName}
                 </div>
                 <!-- Menu -->
                 <ul class="main-menu primary-menu">
@@ -255,13 +353,13 @@ class Header extends BaseComponent {
                     <li><a href="" class="arrow-down">Review Phim</a></li>
                     <li><a href="" class="arrow-down">Thể Loại</a>
                         <ul class="sub-menu">
-                            <li>Hành Động</li>
-                            <li>Tình Cảm</li>
-                            <li>Phiêu Lưu</li>
-                            <li>Hoạt Hình</li>
-                            <li>Kinh Dị</li>
-                            <li>Hài Hước</li>
-                            <li>Tội Phạm</li>
+                            <li class="type-movie" >Hành Động</li>
+                            <li class="type-movie">Tình Cảm</li>
+                            <li class="type-movie">Viễn Tưởng</li>
+                            <li class="type-movie">Hoạt Hình</li>
+                            <li class="type-movie">Hài Hước</li>
+                            <li class="type-movie">Kinh Dị</li>
+                            <li class="type-movie">Tội Phạm</li>
                         </ul>
                     </li>
 					<li><a href="" class="arrow-down">Bảng Xếp Hạng Điểm IMDB</a>
@@ -278,9 +376,36 @@ class Header extends BaseComponent {
     </div>
 </header>
 `
+			//loc type movie
+				this.typeMovie();
+			// loc diem movie
 
-    }
+			// dang xuat tai khoan;
+			this.logOut();
+		
+	}
+	
+	typeMovie(){
+		let dataMovie = firebase.firestore().collection("data_movie");
+		const subMenu = this._shadowRoot.querySelector(".sub-menu");
 
+		subMenu.addEventListener("click", async (event)=>{
+			const typeData = event.target.innerText;
+			localStorage.setItem('type',typeData);
+		})
+	}
+	logOut(){
+		let out = this._shadowRoot.querySelector(".log-out");
+		out.addEventListener("click", (event)=>{
+			var r = confirm("Bạn thực sự muốn đăng xuất ???");
+			if (r == true) {
+				localStorage.setItem("user",0)
+				location.reload();
+			} else {
+				return;
+			}
+		})
+	}
 }
 
 window.customElements.define("header-component", Header);

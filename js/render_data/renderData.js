@@ -44,63 +44,78 @@ async function renderReview(){
     let respon = await dataReview.get();
     // tao random number
     let dataArr = [];
-    let number = Math.floor(Math.random() * dataArr.length);
-    console.log(number)
-    console.log(dataArr.length)
     for ( let data of respon.docs){
         dataArr.push(data.data());
     }
+    let numberA = Math.floor(Math.random() * dataArr.length);
+    let numberB = Math.floor(Math.random() * dataArr.length);
+    let numberC = Math.floor(Math.random() * dataArr.length);
+    let numberD = Math.floor(Math.random() * dataArr.length);
+
+    if(numberA == numberB ) numberB++;
+    if(numberA == numberC ) numberC++;
+    if(numberA == numberD ) numberD++;
+    if(numberB == numberC ) numberC++;
+    if(numberB == numberD ) numberD++;
+    if(numberC == numberD ) numberD++;
+    if(numberB > dataArr.length) numberB = 1;
+    if(numberC > dataArr.length) numberC = 0;
+    if(numberD > dataArr.length) numberD = 2;
+  
+
     reviewMovie.innerHTML = /*html*/`
     <div class="news__img">
     <div class="news__img-center position-relative" >
         <div class="img__center ">
-            <img src="${dataArr[number].img}" alt="joker">
+            <img src="${dataArr[numberA].img}" alt="joker">
         </div>
         <div class="img__info position-absolute d-flex flex-column justify-content-around pl-4">
             <p>Review</p>
             <a href="#" class="img__title">
-                <span>${dataArr[number].name} </span>
+                <span>${dataArr[numberA].name} </span>
             </a>
             <div class="img__time w-50 d-flex flex-row justify-content-between">
-                <span>by<b> : ${dataArr[number].by} / </b></span>
-                <span><i class="far fa-clock"></i> ${dataArr[number].time}</span>
-                <span>/ <i class="far fa-comment-dots"></i> 30</span>
+                <span>by<b> : ${dataArr[numberA].by} / </b></span>
+                <span><i class="far fa-clock"></i> ${dataArr[numberA].time}</span>
+                <span>/ <i class="far fa-comment-dots"></i> ${dataArr[numberA].commentTotal.length}</span>
             </div>
         </div>
         <div class="blur w-100 position-absolute"></div>
     </div>
     <div class="news__img-footer d-flex">
         <div class="news__img-footer-total">
-            <div><img src="https://images.fandango.com/ImageRenderer/0/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/222379/SHOOTER%20Hi-Res.jpg" alt="" ></div>
+            <div><img src="${dataArr[numberB].img}" alt="" ></div>
             <span class="review">Review</span>
-            <p>Jalopy developer is making a game where you 'build stuff...</p>
+            <p>${dataArr[numberB].name}</p>
             <div class="news__img-footer-time">
-                <span><i class="far fa-clock"></i> 20/2/2020</span>
-                <span>/ <i class="far fa-comment-dots"></i> 20</span>
+                <span><i class="far fa-clock"></i> ${dataArr[numberB].time}</span>
+                <span>/ <i class="far fa-comment-dots"></i> ${dataArr[numberB].commentTotal.length}</span>
             </div>
         </div>
         <div class="news__img-footer-total">
-            <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQqEi2E8K40yzhOfbltjfIu0dhFKwb0wmTfEA&usqp=CAU" alt="" ></div>
+            <div><img src="${dataArr[numberC].img}" alt="" ></div>
             <span class="review">Review</span>
-            <p>Jalopy developer is making a game where you 'build stuff...</p>
+            <p>${dataArr[numberC].name}</p>
             <div class="news__img-footer-time">
-                <span><i class="far fa-clock"></i> 20/2/2020</span>
-                <span>/ <i class="far fa-comment-dots"></i> 20</span>
+                <span><i class="far fa-clock"></i> ${dataArr[numberC].time}</span>
+                <span>/ <i class="far fa-comment-dots"></i> ${dataArr[numberC].commentTotal.length}</span>
             </div>
         </div>
         <div class="news__img-footer-total">
-            <div><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTax3fAWIfYa_8gNZwbwxOUHzxarTzl_5lDHw&usqp=CAU" alt="" ></div>
+            <div><img src="${dataArr[numberD].img}" alt="" ></div>
             <span class="review">Review</span>
-            <p>Jalopy developer is making a game where you 'build stuff...</p>
+            <p>${dataArr[numberD].name}</p>
             <div class="news__img-footer-time">
-                <span><i class="far fa-clock"></i> 20/2/2020</span>
-                <span>/ <i class="far fa-comment-dots"></i> 20</span>
+                <span><i class="far fa-clock"></i> ${dataArr[numberD].time}</span>
+                <span>/ <i class="far fa-comment-dots"></i> ${dataArr[numberD].commentTotal.length}</span>
             </div>
         </div>
+        
     </div>
 </div>
     `
-    console.log(dataArr)
 }
 
 renderReview();
+
+
