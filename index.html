@@ -24,7 +24,8 @@
 </head>
 <body>
     <!-- preloader start -->
-    <div class="preload"></div>
+    <!-- <div class="preload"></div> -->
+    <!-- preloader end -->
     <header-component></header-component>
     <intro-component></intro-component>
     <div class="center">
@@ -42,7 +43,7 @@
                     <span class="border"></span>
                 </div>
             </div>
-            <div  id="team-carousel" class="center__movie-top  slider owl-carousel owl-theme ">
+            <div  id="team-carousel" class="center__movie-top  owl-carousel owl-theme wow bounceInUp " data-wow-offset="100 " data-wow-duration="1s">
                     <div class="movie__items">
                         <div class="movie__items-poster">
                             <a href=""> <img class="img-poster" src="https://gamek.mediacdn.vn/2018/4/11/photo-1-15234157887031795360370.jpg" alt="poster"></a>
@@ -147,7 +148,7 @@
             <div class="row pt-5">
                 <div class="col-lg-8 d-flex flex-column justify-content-around">
                     <div class="navbar__news  d-flex flex-row justify-content-between pl-2 mb-3">
-                        <div class="news wow bounceInLeft" data-wow-duration="2.5s" >
+                        <div class="news wow bounceInLeft" data-wow-duration="2.5s"data-wow-offset="0" >
                             <span>News & Update </span>
                         </div>
                         <div class="event">
@@ -155,11 +156,11 @@
                                 <li class="wow bounceInLeft" data-wow-duration="2s">ALL</li>
                                 <li class="wow bounceInLeft" data-wow-duration="1.5s">Sự Kiện</li>
                                 <li class="wow bounceInLeft" data-wow-duration="1s">Đỉnh Cao</li>
-                                <li class="wow bounceInLeft" data-wow-duration="0.5s">Sắp Ra Mắt</li>
+                                <li class="wow bounceInLeft" data-wow-duration="0.5s" >Sắp Ra Mắt</li>
                             </ul>
                         </div>
                     </div>
-                    <div id="works-carousel" class="owl-carousel owl-theme">
+                    <div id="works-carousel" class="owl-carousel owl-theme wow bounceInLeft" data-wow-duration="2s" data-wow-delay="1.2s">
                         <div class="news__img">
                             <div class="news__img-center position-relative" >
                                 <div class="img__center ">
@@ -262,8 +263,8 @@
                 </div>
                 <div class="col-lg-4">
                     <div class="social h-25 d-flex justify-content-betweend flex-column pt-4">
-                        <div class="social__media mb-3"><p>Social Media</p></div>
-                        <div class="social__net d-flex flex-column">
+                        <div class="social__media mb-3" ><p class="wow bounceInRight" data-wow-duration="0.8s">Social Media</p></div>
+                        <div class="social__net d-flex flex-column ">
                             <ul class="d-flex w-100 justify-content-between  wow rollIn" data-wow-delay="0.5s" data-wow-duration="0.8s">
                                 <li class="color"><i class="fab fa-google"></i></li>
                                 <li>Google</li>
@@ -290,7 +291,7 @@
                         <div class="news__moive-title">
                             <p>News Movie ToDay</p>
                         </div>
-                        <div class="news__moive-title d-flex justify-content-between wow fadeInRightBig" data-wow-duration="0.5s" data-wow-offset="300">
+                        <div class="news__moive-title d-flex justify-content-between wow fadeInRightBig" data-wow-duration="0.5s" data-wow-offset="250">
                             <div class="news__moive-img">
                                 <img src="/img/poster/trending-8.jpg" alt="">
                             </div>
@@ -308,7 +309,7 @@
                                 <div><p class="time pt-2"> <i class="far fa-clock"></i> 20/12/20</p></div>
                             </div>
                         </div>
-                        <div class="news__moive-title d-flex justify-content-between wow fadeInRightBig" data-wow-duration="1.1s" data-wow-offset="100">
+                        <div class="news__moive-title d-flex justify-content-between wow fadeInRightBig" data-wow-duration="1.1s" data-wow-offset="150">
                             <div class="news__moive-img">
                                 <img src="/img/poster/trending-8.jpg" alt="">
                             </div>
@@ -334,10 +335,10 @@
     </div>
     <footer-component></footer-component>
     <script> new WOW().init(); 
-        $(".wow").each(function() {
-    var wowHeight = $(this).height();
-    $(this).attr("data-wow-offset", wowHeight);
-    });
+    //     $(".wow").each(function() {
+    // var wowHeight = $(this).height();
+    // $(this).attr("data-wow-offset", wowHeight);
+    // });
  </script>
     <script src="/js/screens/index.js" type="module"></script>
 </body>
