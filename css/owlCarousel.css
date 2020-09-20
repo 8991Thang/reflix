@@ -43,11 +43,7 @@
     vertical-align: middle;
 }
 .center__movie-top{
-    width : 70%;
-    height : 40%;
     display: flex;
-    flex-direction :row;
-    align-items : center;
     justify-content : space-around;
 }
 .movie__items-poster {
@@ -56,6 +52,7 @@
     cursor : pointer;
     
 }
+/* .movie__items{} */
 .movie__items-poster:hover .movie__items-poster-info{
     z-index : 9;
     transform : rotateY(360deg)
@@ -63,6 +60,7 @@
 .movie__items-poster img{
     position : absolute;
     z-index : 3;
+    height: 377px;
 }
 
 .movie__items-poster{

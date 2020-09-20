@@ -109,7 +109,7 @@ a{
     margin-bottom: 40px;
     background:black;
     border : 1px solid #ccc;
-    transform: skewX(-15deg);
+    transform: skewX(-15deg) !important;
     cursor: pointer;
     transition:all 0.5s ease;
 
