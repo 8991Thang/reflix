@@ -263,6 +263,7 @@ class Login extends BaseComponent {
         let dataUser = {
           name : doc.data().name,
           avatar : doc.data().avatar,
+          admin : doc.data().admin,
         }
         localStorage.setItem("user",JSON.stringify(dataUser));
       }

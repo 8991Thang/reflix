@@ -219,3 +219,6 @@ a{
 .review:hover{
     transform: skewX(20deg);
 }
+.row{
+    padding-bottom: 100px;
+}

@@ -151,18 +151,18 @@ const style = /*html*/`
 }
 
 
-.user::after{
-
+.after{
     cursor: pointer;
     position: absolute;
     content: "";
     width: 20px;
     height: 20px;
-    right: -9px;
-    top: 21px;
+    right: -21px;
+    top: 30px;
     background-image: url(../img/icons/arrow-down.png);
     background-repeat: no-repeat;
-    background-position: right center;
+	background-position: right center;
+	
 }
 
 .main-menu li .sub-menu {
@@ -253,7 +253,6 @@ const style = /*html*/`
 	border-radius : 10px;
 	opacity : 0;
 	transition : all 0.9s ease;
-    <!-- visibility: hidden; -->
 }
 .user-menu li:hover{
 	background:black;
@@ -266,12 +265,20 @@ const style = /*html*/`
 .user-menu li:first-child:hover{
 	background : #003366
 }
-.user:hover .user-menu{
+.show{
 	top : 100%;
 	opacity : 1;
+	transform : 
 }
+.rotate{
+	transform:rotateX(180deg)
+
+}	
 .openModal{
 	cursor:pointer;
+}
+.openModal li {
+	list-style-type : none;
 }
 .user-menu li:last-child{
 	border-radius : 0 0 10px 10px;
@@ -294,6 +301,7 @@ const style = /*html*/`
 	padding-top:30px;
 	display: block;
 }
+
 </style>
 `
 class Header extends BaseComponent {
@@ -304,22 +312,31 @@ class Header extends BaseComponent {
     render(){
 		const data = localStorage.getItem("user");
 		const dataConvert = JSON.parse(data);
-		let avatarUser = `
-		<div class="user">
-			<div><img src="${dataConvert.avatar}" alt=""></div>
-			<ul class="openModal">
-			<li>${dataConvert.name}
-			<ul class="user-menu">
-					<li>Hồ Sơ</li>
-					<li>Chỉnh Sửa</li>
-					<li class="log-out">Đăng Xuất</li>
-				</ul>	
-			</li>
-			</ul>	
-		</div>
-		`
-		console.log(data)
-		let userName = (dataConvert == 0) ? ` <a href="/login.index.html">Login</a> / <a href="/register.index.html">Register</a>` :`${avatarUser}`
+			if(data){
+				if(dataConvert.admin){
+					var admin = `<li>Manager</li>`
+				}else{
+					var admin = '';
+				}
+				var	dataUser = `
+				<div class="user">
+					<div><img src="${dataConvert.avatar}" alt=""></div>
+					<ul class="openModal">
+						<li>${dataConvert.name}
+					<ul class="user-menu">
+						<li>Hồ Sơ</li>
+						${admin}
+						<li>Chỉnh Sửa</li>
+						<li class="log-out">Đăng Xuất</li>
+						</ul>	
+						</li>
+					</ul>
+					<div class="after"></div>
+				</div>
+				`
+			}
+			var userName = data ? `${dataUser}` : ` <a href="/login.index.html">Login</a> / <a href="/register.index.html">Register</a>`
+			
         this._shadowRoot.innerHTML = /*html*/`
         <!-- Page Preloder -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
@@ -382,6 +399,8 @@ class Header extends BaseComponent {
 
 			// dang xuat tai khoan;
 			this.logOut();
+			//show menu user 
+			this.showUserMenu();
 		
 	}
 	
@@ -395,16 +414,35 @@ class Header extends BaseComponent {
 		})
 	}
 	logOut(){
-		let out = this._shadowRoot.querySelector(".log-out");
-		out.addEventListener("click", (event)=>{
-			var r = confirm("Bạn thực sự muốn đăng xuất ???");
-			if (r == true) {
-				localStorage.setItem("user",0)
-				location.reload();
-			} else {
-				return;
-			}
-		})
+		const data = localStorage.getItem("user");
+
+		if(data){
+			let out = this._shadowRoot.querySelector(".log-out");
+			out.addEventListener("click", (event)=>{
+				var r = confirm("Bạn thực sự muốn đăng xuất ???");
+				if (r == true) {
+					localStorage.removeItem("user")
+					location.reload();
+				} else {
+					return;
+				}
+			})
+		}else{
+			return;
+		}
+	}
+	showUserMenu(){
+		const data = localStorage.getItem("user");
+		if(data){
+
+			let show = this._shadowRoot.querySelector(".after");
+			let userMenu = this._shadowRoot.querySelector(".user-menu");
+			show.addEventListener("click",()  => {
+				userMenu.classList.toggle("show");
+				show.classList.toggle("rotate")
+			})
+		}
+
 	}
 }
 
