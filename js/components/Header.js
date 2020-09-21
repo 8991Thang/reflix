@@ -333,6 +333,7 @@ class Header extends BaseComponent {
 					</ul>
 					<div class="after"></div>
 				</div>
+				
 				`
 			}
 			var userName = data ? `${dataUser}` : ` <a href="/login.index.html">Login</a> / <a href="/register.index.html">Register</a>`

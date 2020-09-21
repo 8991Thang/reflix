@@ -43,14 +43,27 @@
     vertical-align: middle;
 }
 .center__movie-top{
+    height: 1200px;
+    width: 54%;
+    flex-wrap: wrap;
     display: flex;
-    justify-content : space-around;
+    justify-content: space-around;
+    overflow: hidden;
+    margin-bottom: 89px;
 }
 .movie__items-poster {
     width : 260px;
     height : 377px;
     cursor : pointer;
-    
+}
+.movie__items-poster-info p {
+    color: red;
+}
+.movie__items-poster-info:lastchild{
+    line-height:60px;
+}
+.movie__items-poster-info b {
+    color: black;
 }
 /* .movie__items{} */
 .movie__items-poster:hover .movie__items-poster-info{
@@ -97,16 +110,25 @@
     width : 260px !important;
 }
 .movie__items-detail{
+    margin-bottom : 50px;
     width : 260px;
-
     text-align : center;
     margin-top: 26px;
 }
 .movie__items-detail > h2 > a{
+    font-size: 20px;
     color: white;
     text-transform : uppercase;
 
     text-decoration: none;
+}
+.movie__items-detail p {
+    padding-top : 5px;
+    color: white;
+    font-style: italic;
+}
+.movie__items-detail:first-child {
+    padding-top : 10px;
 }
 .border{
     position: absolute;
@@ -117,60 +139,6 @@
     z-index: 9;
     height: 2px;
     background: #ce3e82 !important;
-}
-.owl-prev{
-    left : -30px;
-}
-.owl-next{
-    right : -30px;
-}
-.owl-prev{
-    background-image: url("/img/icons/arrow-left.png") !important;
-    border:none;
-    background-position: center center!important;
-    outline: none !important;
-    position: absolute;
-    top : 38%;
-    background-color: #fff !important;
-    border-radius: 90px;
-    background-size: 35px 30px;
-    background-repeat: no-repeat !important;
-    width: 45px !important;
-    height: 45px;
-    margin: auto;
-    color: transparent;
-    transform: translateY(-50%);
-    z-index: 9;
-    opacity: .9;
-    transition: all .3s ease;
-    left: -45px;
-    
-}
-.owl-next{
-    background-image: url("/img/icons/arrow-right.png") !important;
-    border:none;
-    background-position: center center!important;
-    outline: none !important;
-    position: absolute;
-    top : 38%;
-    background-color: #fff !important;
-    border-radius: 90px;
-    background-size: 35px 30px;
-    background-repeat: no-repeat !important;
-    width: 45px !important;
-    height: 45px;
-    margin: auto;
-    color: transparent;
-    transform: translateY(-50%);
-    z-index: 9;
-    opacity: .9;
-    transition: all .3s ease;
-    right: 10px;
-    
-
-}
-.owl-theme .owl-nav [class*="owl-"]:hover{
-    background-color: transparent;
 }
 /* preloder */
 .ml6 {

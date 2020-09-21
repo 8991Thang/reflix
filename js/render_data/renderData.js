@@ -25,6 +25,8 @@ async function renderSlice(){
                         </div>
                         <div class="movie__items-detail">
                             <h2><a href="">${data.data().name}</a></h2>
+                            <p><b>Thời lượng</b> : ${data.data().time}</p>
+                            <p><b>Ngày Khởi Chiếu</b> : ${data.data().date}</p>
                         </div>
                     </div>
         `
@@ -58,9 +60,18 @@ async function renderReview(){
     if(numberB == numberC ) numberC++;
     if(numberB == numberD ) numberD++;
     if(numberC == numberD ) numberD++;
-    if(numberB > dataArr.length) numberB = 1;
-    if(numberC > dataArr.length) numberC = 0;
-    if(numberD > dataArr.length) numberD = 2;
+    if(numberB > dataArr.length) numberB -= 1;
+    if(numberC > dataArr.length) numberC -= 1;
+    if(numberD > dataArr.length) numberD = 1;
+    if(numberA == numberB ) numberB++;
+    if(numberA == numberC ) numberC++;
+    if(numberA == numberD ) numberD++;
+    if(numberB == numberC ) numberC++;
+    if(numberB == numberD ) numberD++;
+    if(numberC == numberD ) numberD++;
+    if(numberB > dataArr.length) numberB -= 1;
+    if(numberC > dataArr.length) numberC -= 1;
+    if(numberD > dataArr.length) numberD = 1;
   
 
     reviewMovie.innerHTML = /*html*/`
@@ -118,4 +129,79 @@ async function renderReview(){
 
 renderReview();
 
+let renderLeft = document.querySelector(".news__movie")
+async function renderLeftReview(){
+    let respon = await dataMovie.get();
+    let dataLeft = [];
+    for ( let data of respon.docs){
+        dataLeft.push(data.data());
+    }
+    let numberA = Math.floor(Math.random() * dataLeft.length);
+    let numberB = Math.floor(Math.random() * dataLeft.length);
+    let numberC = Math.floor(Math.random() * dataLeft.length);
+    let numberD = Math.floor(Math.random() * dataLeft.length);
 
+    if(numberA == numberB ) numberB++;
+    if(numberA == numberC ) numberC++;
+    if(numberA == numberD ) numberD++;
+    if(numberB == numberC ) numberC++;
+    if(numberB == numberD ) numberD++;
+    if(numberC == numberD ) numberD++;
+    if(numberB > dataLeft.length) numberB -= 1;
+    if(numberC > dataLeft.length) numberC -= 1;
+    if(numberD > dataLeft.length) numberD = 1;
+    if(numberA == numberB ) numberB++;
+    if(numberA == numberC ) numberC++;
+    if(numberA == numberD ) numberD++;
+    if(numberB == numberC ) numberC++;
+    if(numberB == numberD ) numberD++;
+    if(numberC == numberD ) numberD++;
+    if(numberB > dataLeft.length) numberB -= 1;
+    if(numberC > dataLeft.length) numberC -= 1;
+    if(numberD > dataLeft.length) numberD = 1;
+  
+    renderLeft.innerHTML = /*html*/ `
+    <div class="news__moive-title">
+                            <p>News Movie ToDay</p>
+                        </div>
+                        <div class="news__moive-title d-flex justify-content-between wow fadeInRightBig" data-wow-duration="0.5s" data-wow-offset="250">
+                            <div class="news__moive-img">
+                                <img src="${dataLeft[numberA].img}" alt="">
+                            </div>
+                            <div class="news_movie-img-title ">
+                                <div><a href="#" class="title">${dataLeft[numberA].name}</a></div>
+                                <div><p class="time pt-2"><i class="far fa-clock"></i>  ${dataLeft[numberA].date}</p></div>
+                            </div>
+                        </div>
+                        <div class="news__moive-title d-flex justify-content-between wow fadeInRightBig " data-wow-duration="0.8s" data-wow-offset="200">
+                            <div class="news__moive-img">
+                                <img src="${dataLeft[numberB].img}" alt="">
+                            </div>
+                            <div class="news_movie-img-title ">
+                                <div><a href="#" class="title">${dataLeft[numberB].name}</a></div>
+                                <div><p class="time pt-2"> <i class="far fa-clock"></i> ${dataLeft[numberB].date}</p></div>
+                            </div>
+                        </div>
+                        <div class="news__moive-title d-flex justify-content-between wow fadeInRightBig" data-wow-duration="1.1s" data-wow-offset="150">
+                            <div class="news__moive-img">
+                                <img src="${dataLeft[numberC].img}" alt="">
+                            </div>
+                            <div class="news_movie-img-title ">
+                                <div><a href="#" class="title">${dataLeft[numberC].name}</a></div>
+                                <div><p class="time pt-2"><i class="far fa-clock"></i> ${dataLeft[numberC].date}</p></div>
+                            </div>
+                        </div>
+                        <div class="news__moive-title d-flex justify-content-between wow fadeInRightBig" data-wow-duration="1.4s" data-wow-offset="50">
+                            <div class="news__moive-img">
+                                <img src="${dataLeft[numberD].img}" alt="">
+                            </div>
+                            <div class="news_movie-img-title ">
+                                <div><a href="#" class="title">${dataLeft[numberD].name}</a></div>
+                                <div><p class="time pt-2"><i class="far fa-clock"></i> ${dataLeft[numberD].date}</p></div>
+                            </div>
+                        </div>
+
+    `
+
+}
+renderLeftReview()

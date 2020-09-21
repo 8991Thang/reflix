@@ -163,6 +163,9 @@ class Login extends BaseComponent {
   }
   render() {
     this._shadowRoot.innerHTML = /*html*/ `
+    <!-- bootboxjs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/5.4.0/bootbox.min.js"></script>
+    
     ${style}
  <div class="body">
     <div class="main">
@@ -266,6 +269,7 @@ class Login extends BaseComponent {
           admin : doc.data().admin,
         }
         localStorage.setItem("user",JSON.stringify(dataUser));
+      
       }
       window.location.href = "/index.html"
     }
