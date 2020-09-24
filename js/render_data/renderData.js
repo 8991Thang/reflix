@@ -18,7 +18,7 @@ async function renderSlice(){
                             <a href=""> <img class="img-poster" src="${data.data().img}" alt="poster"></a>
                             <div class="movie__items-poster-info">
                                 <a href="">Chi tiết</a>
-                                <a href="${data.data().trailer}">Trailer</a>
+                                <a target="_blank" href="${data.data().trailer}">Trailer</a>
                                 <p><b>Thời lượng</b> : ${data.data().time}</p>
                                 <p><b>Thể Loại</b> : ${data.data().type}</p>
                             </div>

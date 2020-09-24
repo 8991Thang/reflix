@@ -9,6 +9,9 @@ const style = /*html*/`
     padding : 0;
     box-sizing : border-box;
 }
+a{
+	text-decoration: none;
+}
 .header-section {
 	position: absolute;
 	width: 100%;
@@ -241,16 +244,16 @@ const style = /*html*/`
 	padding-bottom: 8px;
 }
 .user-menu{
+	width: 200px;
 	margin-top:10px;
 	list-style: none;
 	float:left;
 	position: absolute;
 	text-align : center;
-	right: -15px;
+	right: -35px;
 	top : 170%;
 	background : #302525;
 	border : 1.5px solid white;
-	border-radius : 10px;
 	opacity : 0;
 	transition : all 0.9s ease;
 }
@@ -260,13 +263,12 @@ const style = /*html*/`
 .user-menu li:first-child{
 	background : blue;
 	border:none;
-	border-radius : 10px 10px 0 0;
 }
 .user-menu li:first-child:hover{
 	background : #003366
 }
 .show{
-	top : 100%;
+	top : 80%;
 	opacity : 1;
 	transform : 
 }
@@ -281,7 +283,6 @@ const style = /*html*/`
 	list-style-type : none;
 }
 .user-menu li:last-child{
-	border-radius : 0 0 10px 10px;
 	background : #FF4646;
 }
 .user-menu li:last-child:hover{
@@ -295,8 +296,6 @@ const style = /*html*/`
 	display:flex;
 	justify-content:center;
 	align-items: center;
-	height : 90px;
-	width: 105px;
 	padding-right: 10px;
 	padding-top:30px;
 	display: block;
@@ -314,7 +313,7 @@ class Header extends BaseComponent {
 		const dataConvert = JSON.parse(data);
 			if(data){
 				if(dataConvert.admin){
-					var admin = `<li>Manager</li>`
+					var admin = `<li><a href="/Dashbroad/dashbroad.html">Manager</a></li>`
 				}else{
 					var admin = '';
 				}
