@@ -197,11 +197,11 @@ class Login extends BaseComponent {
 
 </div>
         `;
-
+        
     this.$formRegister = this._shadowRoot.querySelector(".register-form");
     this.$formRegister.onsubmit = (event) => {
       event.preventDefault();
-
+     
       // lay du lieu tu cac input wrapper
       const dataUser = {
         email: this._shadowRoot.querySelector(".email").valueInput,
@@ -265,13 +265,22 @@ class Login extends BaseComponent {
       for (let doc of result.docs){
         let dataUser = {
           name : doc.data().name,
+          email : doc.data().email,
           avatar : doc.data().avatar,
           admin : doc.data().admin,
         }
         localStorage.setItem("user",JSON.stringify(dataUser));
-      
       }
-      window.location.href = "/index.html"
+        let dataUser = JSON.parse(localStorage.getItem("user"));
+        let userAdmin = !dataUser.admin ? "false" : "true";
+       await firebase.firestore().collection("status").add({
+          name: dataUser.name,
+          user : dataUser.email,
+          time : new Date(),
+          avatar: dataUser.avatar,
+          admin : `${userAdmin}`,
+        })
+      window.location.href = "/index.html"  
     }
   }
 }

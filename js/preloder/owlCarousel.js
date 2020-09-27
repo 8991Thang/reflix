@@ -23,4 +23,34 @@ window.addEventListener("load", () => {
     const preload = document.querySelector(".preload");
     preload.classList.add("preload-finish");
   });
-// phao hoa de
+// scroll bar
+
+// let progress = document.querySelector("#progressbar");
+
+// let totalHeight = document.body.scrollHeight - window.innerHeight;
+
+// window.onscroll = function(){
+//   let progressHeight = (window.pageYOffset / totalHeight) * 100;
+//   progress.style.height = progressHeight + "%";
+// }
+// // mouseMove Heart
+
+// document.addEventListener("mousemove", function(e){
+//   let body = document.querySelector('body');
+//   let heart = document.createElement('h6');
+//   let x = e.offsetX;
+//   let y = e.offsetY;
+//   heart.style.left = x + "px";
+//   heart.style.top = y + "px";
+//   let size = Math.random() * 100;
+//   let opacity = Math.random() * 1;
+//   heart.style.opacity = opacity;
+//   heart.style.width = size + "px";
+//   heart.style.height = size + "px";
+//   body.appendChild(heart);
+
+//   setTimeout(function() {
+//     heart.remove()
+//   },900)
+// })
+

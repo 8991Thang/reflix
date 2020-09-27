@@ -12,7 +12,6 @@ class BaseComponent extends HTMLElement {
         this.render();
         this.componentDidMount();
     }
-
     attributeChangedCallback(name, oldValue, newValue) {
         this.props[name] = newValue;
         this.render();
@@ -22,7 +21,6 @@ class BaseComponent extends HTMLElement {
     disconnectedCallback() {
         this.componentWillUnmount();
     }
-
     setState(newState) {
         this.state = newState;
         this.render();

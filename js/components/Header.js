@@ -313,7 +313,7 @@ class Header extends BaseComponent {
 		const dataConvert = JSON.parse(data);
 			if(data){
 				if(dataConvert.admin){
-					var admin = `<li><a href="/Dashbroad/dashbroad.html">Manager</a></li>`
+					var admin = `<li><a href="/Dashbroad/admin/index.html">Manager</a></li>`
 				}else{
 					var admin = '';
 				}
@@ -414,15 +414,17 @@ class Header extends BaseComponent {
 		})
 	}
 	logOut(){
-		const data = localStorage.getItem("user");
-
+		const data = JSON.parse(localStorage.getItem("user"));
 		if(data){
 			let out = this._shadowRoot.querySelector(".log-out");
-			out.addEventListener("click", (event)=>{
+			out.addEventListener("click",async (event)=>{
 				var r = confirm("Bạn thực sự muốn đăng xuất ???");
 				if (r == true) {
+					let dataUser = await firebase.firestore().collection("status").where("email" ,"==",data.email).onSnapshot(querySnapshot => {
+							querySnapshot.docs
+					})
 					localStorage.removeItem("user")
-					location.reload();
+					location.reload();	
 				} else {
 					return;
 				}
