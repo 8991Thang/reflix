@@ -92,42 +92,18 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Tổng Hợp</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Thêm Bài Viết</a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Chỉnh Sửa / Delete</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/Dashbroad/admin/totalReview.html">Tổng Hợp</a></li>
+                <li class="nav-item"> <a class="nav-link" href="/Dashbroad/admin/newReview.html">Thêm Bài Viết</a></li>
+                <li class="nav-item"> <a class="nav-link" href="#">Chỉnh Sửa / Delete</a></li>
               </ul>
             </div>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/forms/basic_elements.html">
+            <a class="nav-link" href="#">
               <span class="menu-icon">
                 <i class="mdi mdi-playlist-play"></i>
               </span>
               <span class="menu-title">Form Elements</span>
-            </a>
-          </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/tables/basic-table.html">
-              <span class="menu-icon">
-                <i class="mdi mdi-table-large"></i>
-              </span>
-              <span class="menu-title">Tables</span>
-            </a>
-          </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/charts/chartjs.html">
-              <span class="menu-icon">
-                <i class="mdi mdi-chart-bar"></i>
-              </span>
-              <span class="menu-title">Charts</span>
-            </a>
-          </li>
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="pages/icons/mdi.html">
-              <span class="menu-icon">
-                <i class="mdi mdi-contacts"></i>
-              </span>
-              <span class="menu-title">Icons</span>
             </a>
           </li>
           <li class="nav-item menu-items">
@@ -180,7 +156,7 @@
               <li class="nav-item dropdown d-none d-lg-block">
                 <a class="nav-link btn btn-success create-new-button" id="createbuttonDropdown" data-toggle="dropdown" aria-expanded="false" href="#">+ Tạo Bài Viết Mới</a>
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="createbuttonDropdown">
-                  <h6 class="p-3 mb-0">Projects</h6>
+                  <h6 class="p-3 mb-0">Tạo Mới</h6>
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
@@ -188,8 +164,8 @@
                         <i class="mdi mdi-file-outline text-primary"></i>
                       </div>
                     </div>
-                    <div class="preview-item-content">
-                      <p class="preview-subject ellipsis mb-1">Software Development</p>
+                    <div class="preview-item-content" onclick="rederect(this)">
+                      <p class="preview-subject ellipsis mb-1" >Bài Viết Review</p>
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
@@ -200,7 +176,7 @@
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <p class="preview-subject ellipsis mb-1">UI Development</p>
+                      <p class="preview-subject ellipsis mb-1">Bài Viết Trailer</p>
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
@@ -211,7 +187,7 @@
                       </div>
                     </div>
                     <div class="preview-item-content">
-                      <p class="preview-subject ellipsis mb-1">Software Testing</p>
+                      <p class="preview-subject ellipsis mb-1">Thêm Ảnh Slide</p>
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
@@ -481,14 +457,14 @@
               <div class="col-sm-4 grid-margin">
                 <div class="card">
                   <div class="card-body">
-                    <h5>Revenue</h5>
+                    <h5>Thu Nhập</h5>
                     <div class="row">
                       <div class="col-8 col-sm-12 col-xl-8 my-auto">
                         <div class="d-flex d-sm-block d-md-flex align-items-center">
                           <h2 class="mb-0">$32123</h2>
                           <p class="text-success ml-2 mb-0 font-weight-medium">+3.5%</p>
                         </div>
-                        <h6 class="text-muted font-weight-normal">11.38% Since last month</h6>
+                        <h6 class="text-muted font-weight-normal">11.38% So với tháng trước</h6>
                       </div>
                       <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                         <i class="icon-lg mdi mdi-codepen text-primary ml-auto"></i>
@@ -500,14 +476,14 @@
               <div class="col-sm-4 grid-margin">
                 <div class="card">
                   <div class="card-body">
-                    <h5>Sales</h5>
+                    <h5>Quảng Cáo</h5>
                     <div class="row">
                       <div class="col-8 col-sm-12 col-xl-8 my-auto">
                         <div class="d-flex d-sm-block d-md-flex align-items-center">
-                          <h2 class="mb-0">$45850</h2>
+                          <h2 class="mb-0">$850</h2>
                           <p class="text-success ml-2 mb-0 font-weight-medium">+8.3%</p>
                         </div>
-                        <h6 class="text-muted font-weight-normal"> 9.61% Since last month</h6>
+                        <h6 class="text-muted font-weight-normal"> 9.61% So với tháng trước</h6>
                       </div>
                       <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                         <i class="icon-lg mdi mdi-wallet-travel text-danger ml-auto"></i>
@@ -519,14 +495,14 @@
               <div class="col-sm-4 grid-margin">
                 <div class="card">
                   <div class="card-body">
-                    <h5>Purchase</h5>
+                    <h5>Purch</h5>
                     <div class="row">
                       <div class="col-8 col-sm-12 col-xl-8 my-auto">
                         <div class="d-flex d-sm-block d-md-flex align-items-center">
                           <h2 class="mb-0">$2039</h2>
                           <p class="text-danger ml-2 mb-0 font-weight-medium">-2.1% </p>
                         </div>
-                        <h6 class="text-muted font-weight-normal">2.27% Since last month</h6>
+                        <h6 class="text-muted font-weight-normal">2.27% So với tháng trước</h6>
                       </div>
                       <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
                         <i class="icon-lg mdi mdi-monitor text-success ml-auto"></i>
@@ -555,7 +531,7 @@
                             <th> User </th>
                             <th> Chức Năng </th>
                             <th>Email</th>
-                            <th>Time Start Login</th>
+                            <th>Địa Chỉ</th>
                             <th>Login</th>
                             <th>Trạng Thái</th>
                           </tr>
@@ -576,63 +552,8 @@
                       <h4 class="card-title">Messages</h4>
                       <p class="text-muted mb-1 small">View all</p>
                     </div>
-                    <div class="preview-list">
-                      <div class="preview-item border-bottom">
-                        <div class="preview-thumbnail">
-                          <img src="assets/images/faces/face6.jpg" alt="image" class="rounded-circle" />
-                        </div>
-                        <div class="preview-item-content d-flex flex-grow">
-                          <div class="flex-grow">
-                            <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                              <h6 class="preview-subject">Leonard</h6>
-                              <p class="text-muted text-small">5 minutes ago</p>
-                            </div>
-                            <p class="text-muted">Well, it seems to be working now.</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="preview-item border-bottom">
-                        <div class="preview-thumbnail">
-                          <img src="assets/images/faces/face8.jpg" alt="image" class="rounded-circle" />
-                        </div>
-                        <div class="preview-item-content d-flex flex-grow">
-                          <div class="flex-grow">
-                            <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                              <h6 class="preview-subject">Luella Mills</h6>
-                              <p class="text-muted text-small">10 Minutes Ago</p>
-                            </div>
-                            <p class="text-muted">Well, it seems to be working now.</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="preview-item border-bottom">
-                        <div class="preview-thumbnail">
-                          <img src="assets/images/faces/face9.jpg" alt="image" class="rounded-circle" />
-                        </div>
-                        <div class="preview-item-content d-flex flex-grow">
-                          <div class="flex-grow">
-                            <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                              <h6 class="preview-subject">Ethel Kelly</h6>
-                              <p class="text-muted text-small">2 Hours Ago</p>
-                            </div>
-                            <p class="text-muted">Please review the tickets</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="preview-item border-bottom">
-                        <div class="preview-thumbnail">
-                          <img src="assets/images/faces/face11.jpg" alt="image" class="rounded-circle" />
-                        </div>
-                        <div class="preview-item-content d-flex flex-grow">
-                          <div class="flex-grow">
-                            <div class="d-flex d-md-block d-xl-flex justify-content-between">
-                              <h6 class="preview-subject">Herman May</h6>
-                              <p class="text-muted text-small">4 Hours Ago</p>
-                            </div>
-                            <p class="text-muted">Thanks a lot. It was easy to fix it .</p>
-                          </div>
-                        </div>
-                      </div>
+                    <div class="preview-list list-cmt">
+                      
                     </div>
                   </div>
                 </div>
@@ -752,7 +673,7 @@
           <!-- partial:partials/_footer.html -->
           <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2019 <a href="https://www.bootstrapdash.com/" target="_blank">BootstrapDash</a>. All rights reserved.</span>
+              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2019 <a href="https://www.bootstrapdash.com/" target="_blank">Reflix</a>. All rights reserved.</span>
               <span class="text-muted float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
             </div>
           </footer>
@@ -796,9 +717,8 @@ let respon = await firebase.firestore().collection("status").onSnapshot((querySn
     if(!doc.data()){
       return;
     }
-    const dateTime = document.querySelector(".date-time");
-  
-
+    function renderTime(){
+      const dateTime = document.querySelector(".date-time");
     let member = doc.data().admin == "true" ? `ADMIN` : `MEMBER`
     statusUser.innerHTML += /*html*/`
                             <tr>
@@ -815,12 +735,15 @@ let respon = await firebase.firestore().collection("status").onSnapshot((querySn
                             </td>
                             <td>${member}</td>
                             <td>${doc.data().user}</td>
-                            <td class="date-time">20/5</td>
-                            <td class="seconds-time">${runTime(doc.data().time.seconds)}</td>
+                            <td class="date-time">${doc.data().address}</td>
+                            <td class="seconds-time"></td>
                             <td>
                               <div class="badge badge-outline-success">Đang Truy Cập</div>
                             </td>
                           </tr>`;
+    }
+    renderTime();
+    runTime(doc.data().time.seconds);
   }
 });
 function runTime(timeTotal){
@@ -828,12 +751,46 @@ function runTime(timeTotal){
       let minutes = Math.floor(seconds / 60);
       let hour = Math.floor(minutes / 60);
       let days = minutes / 60 % 24;
+      document.querySelector('.seconds-time').innerText = seconds;
       return seconds;
     }
     runTime()
  setInterval(runTime,1000);
-} 
+}
+
 getUser()
+async function renderCmt(){
+  let dbfirebase = await firebase.firestore().collection("review_moive").onSnapshot(querySnapShot => {
+    let dataCmt = [];
+    for ( let doc of querySnapShot.docs){
+      dataCmt.push(doc.data());
+    }
+    
+   let showData = dataCmt.filter(cmt => cmt.commentTotal.length > 0);
+   console.log(showData);
+   showData.map(renderData => {
+     let previewList = document.querySelector(".list-cmt");
+         previewList.innerHTML += /*html*/`
+     <div class="preview-item border-bottom">
+                        <div class="preview-thumbnail">
+                          <img src="assets/images/faces/face11.jpg" alt="image" class="rounded-circle" />
+                        </div>
+                        <div class="preview-item-content d-flex flex-grow">
+                          <div class="flex-grow">
+                            <div class="d-flex d-md-block d-xl-flex justify-content-between">
+                              <h6 class="preview-subject">Herman May</h6>
+                              <p class="text-muted text-small">4 Hours Ago</p>
+                            </div>
+                            <p class="text-muted">Thanks a lot. It was easy to fix it .</p>
+                          </div>
+                        </div>
+      </div>
+     
+     `
+   })
+  })
+}
+renderCmt();
 </script>
 <script src="app.js"></script>
   </body>

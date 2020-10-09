@@ -12,6 +12,13 @@ a{
     text-decoration: none;
     color: white;
 }
+a:hover{
+    text-decoration: none;
+
+}
+.name__review:hover{
+    color:red;
+}
 .row{
     width: 100%;
     height: 100%;
@@ -221,4 +228,17 @@ a{
 }
 .row{
     padding-bottom: 100px;
+}
+
+.modal__trailer{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    z-index: 99999;
+}
+.news__img-footer-total p:hover{
+    cursor: pointer;
+    color:red;
 }

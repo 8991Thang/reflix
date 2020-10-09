@@ -1,5 +1,4 @@
 import { BaseComponent } from "../screens/BaseComponent.js";
-
 const style = /*html*/ `
 <style>
 *{
@@ -215,6 +214,7 @@ class Register extends BaseComponent {
         email: this._shadowRoot.querySelector(".email").valueInput,
         password: this._shadowRoot.querySelector(".password-input").valueInput,
         avatar :"https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png",
+        address:"Hà Nội , Việt Nam",
       };
       if (!dataUser.name && !dataUser.email && !dataUser.password) {
         this._shadowRoot

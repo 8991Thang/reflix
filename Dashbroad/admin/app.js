@@ -1,8 +1,9 @@
 // profile info
 $: firebase = firebase.firestore().collection("data_movie");
-
-
 let user = JSON.parse(localStorage.getItem("user"));
+if(!user.admin){
+  window.location.href = "/index.html"
+}
 async function infoUser() {
   let profile = document.querySelector(".profile-pic");
   profile.innerHTML = /*html*/ `
@@ -129,3 +130,27 @@ async function infoUser() {
   }
 infoUser();
 // ONLINE USER
+
+
+// rederect 
+
+function rederect(){
+  window.location.href="/Dashbroad/admin/newReview.html";
+}
+
+//preloader
+window.addEventListener("load", () => {
+  const preload = document.querySelector(".preload");
+  preload.classList.add("preload-finish");
+});
+// scroll bar
+
+let progress = document.querySelector("#progressbar");
+
+let totalHeight = document.body.scrollHeight - window.innerHeight;
+
+window.onscroll = function(){
+let progressHeight = (window.pageYOffset / totalHeight) * 100;
+progress.style.height = progressHeight + "%";
+}
+// 

@@ -49,7 +49,7 @@ Html, body
 }
 .center__movie-top{
     height: 1200px;
-    width: 54%;
+    width: 62%;
     flex-wrap: wrap;
     display: flex;
     justify-content: space-around;
@@ -59,7 +59,7 @@ Html, body
 .movie__items-poster {
     width : 260px;
     height : 377px;
-    cursor : pointer;
+    cursor : pointer;   
 }
 .movie__items-poster-info p {
     color: red;

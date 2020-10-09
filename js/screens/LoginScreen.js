@@ -268,6 +268,7 @@ class Login extends BaseComponent {
           email : doc.data().email,
           avatar : doc.data().avatar,
           admin : doc.data().admin,
+          address: doc.data().address,
         }
         localStorage.setItem("user",JSON.stringify(dataUser));
       }
@@ -279,7 +280,8 @@ class Login extends BaseComponent {
           time : new Date(),
           avatar: dataUser.avatar,
           admin : `${userAdmin}`,
-        })
+          address: dataUser.address,
+        })  
       window.location.href = "/index.html"  
     }
   }

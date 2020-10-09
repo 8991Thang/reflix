@@ -22,11 +22,13 @@
     <!-- router -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/navigo/7.1.2/navigo.min.js"></script> 
-
+     <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
 </head>
 <body>
     <!-- preloader start -->
-    <!-- <div class="preload"></div> -->
+    <div class="preload"></div>
     <!-- preloader end -->
     <!-- scroll bar -->
     <div id="progressbar"></div>
@@ -53,7 +55,7 @@
             </div>
         </div>
     </div>
-    <div class="total">
+    <div class="total"> 
         <section class="container">
             <div class="row pt-5">
                 <div class="col-lg-8 d-flex flex-column justify-content-around">
@@ -106,14 +108,7 @@
         </section>
     </div>
     <footer-component></footer-component>
-    <script> new WOW().init(); 
- </script>
- <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
-<!-- TODO: Add SDKs for Firebase products that you want to use
-     https://firebase.google.com/docs/web/setup#available-libraries -->
-
+<script> new WOW().init(); </script>
 <script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
@@ -127,8 +122,8 @@
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
-  
 </script>
+<script src="/js/render_data/renderData.js"></script>
     <script src="/js/screens/index.js" type="module"></script>
     <script src="/js/preloder/owlCarousel.js"></script>
 </body>

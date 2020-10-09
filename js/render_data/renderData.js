@@ -82,8 +82,8 @@ async function renderReview(){
         </div>
         <div class="img__info position-absolute d-flex flex-column justify-content-around pl-4">
             <p>Review</p>
-            <a href="#" class="img__title">
-                <span>${dataArr[numberA].name} </span>
+            <a href="/review.html" class="img__title">
+                <span class="name__review">${dataArr[numberA].name} </span>
             </a>
             <div class="img__time w-50 d-flex flex-row justify-content-between">
                 <span>by<b> : ${dataArr[numberA].by} / </b></span>
@@ -97,7 +97,8 @@ async function renderReview(){
         <div class="news__img-footer-total">
             <div><img src="${dataArr[numberB].img}" alt="" ></div>
             <span class="review">Review</span>
-            <p>${dataArr[numberB].name}</p>
+            <a href="/review.html" class="name__review">${dataArr[numberB].name}</a>
+
             <div class="news__img-footer-time">
                 <span><i class="far fa-clock"></i> ${dataArr[numberB].time}</span>
                 <span>/ <i class="far fa-comment-dots"></i> ${dataArr[numberB].commentTotal.length}</span>
@@ -106,7 +107,8 @@ async function renderReview(){
         <div class="news__img-footer-total">
             <div><img src="${dataArr[numberC].img}" alt="" ></div>
             <span class="review">Review</span>
-            <p>${dataArr[numberC].name}</p>
+            <a href="/review.html" class="name__review">${dataArr[numberC].name}</a>
+
             <div class="news__img-footer-time">
                 <span><i class="far fa-clock"></i> ${dataArr[numberC].time}</span>
                 <span>/ <i class="far fa-comment-dots"></i> ${dataArr[numberC].commentTotal.length}</span>
@@ -115,7 +117,7 @@ async function renderReview(){
         <div class="news__img-footer-total">
             <div><img src="${dataArr[numberD].img}" alt="" ></div>
             <span class="review">Review</span>
-            <p>${dataArr[numberD].name}</p>
+            <a href="/review.html" class="name__review">${dataArr[numberD].name}</a>
             <div class="news__img-footer-time">
                 <span><i class="far fa-clock"></i> ${dataArr[numberD].time}</span>
                 <span>/ <i class="far fa-comment-dots"></i> ${dataArr[numberD].commentTotal.length}</span>
@@ -126,8 +128,13 @@ async function renderReview(){
 </div>
     `
 }
-
 renderReview();
+function getDataLocal(){
+    reviewMovie.addEventListener("click",(e) => {
+        localStorage.setItem("idReview", e.target.innerText);
+    })
+}
+getDataLocal();
 
 let renderLeft = document.querySelector(".news__movie")
 async function renderLeftReview(){
