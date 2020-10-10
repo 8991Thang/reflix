@@ -1,4 +1,6 @@
-
+*{
+    font-family: 'Quicksand', sans-serif;
+}
 .total{
     color : white;
     width: 100vw;
@@ -241,4 +243,10 @@ a:hover{
 .news__img-footer-total p:hover{
     cursor: pointer;
     color:red;
+}
+.name__movie{
+    cursor: pointer;
+}
+.name__movie:hover{
+    text-decoration:underline;
 }

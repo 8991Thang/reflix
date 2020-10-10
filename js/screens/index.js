@@ -11,5 +11,6 @@ import "../screens/searchPage.js"
 import "../screens/typeMovie.js"
 import "../screens/reviewPage.js"
 import "../screens/suggestReview.js"
+import "../screens/moviePage.js"
 
 // import "./router.js"

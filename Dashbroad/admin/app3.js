@@ -7,6 +7,7 @@ function rederect(){
 async function renderCardMovie(){
     let db = await firebase.firestore().collection("review_moive").get();
     let collectionCard = document.querySelector(".card__collection");
+    collectionCard.innerHTML = '';
     for (let doc of db.docs){
         collectionCard.innerHTML +=/*html*/`
         <div class="card" style="width: 18rem;">
@@ -21,9 +22,8 @@ async function renderCardMovie(){
                       <li class="list-group-item">Ngày Đăng : ${doc.data().time}</li>
                     </ul>
                     <div class="card-body btn">
-                        <button class="btn btn-danger delete" onclick="deleteCard(this)">Xoá</button>
+                        <button id="${doc.data().name}" class="btn btn-danger delete"onclick="deleteCard(this)" >Xoá</button>
                         <button class="btn btn-info"> Chỉnh Sửa</button>
-                        
                     </div>
                   </div>
         
@@ -32,9 +32,39 @@ async function renderCardMovie(){
 }
 renderCardMovie();
 
-function deleteCard(e){
-    e.parentNode.parentNode.parentNode.removeChild(e.parentNode.parentNode);
-    console.log(e.parentNode.parentNode.content);
-    
+async function deleteCard(event){
+  var r = confirm("Bạn có chắc chắn muốn xóa bài viết này không?!");
+  if (r == true) {
+    let db = await firebase.firestore()
+    .collection("review_moive")
+    .where("name","==",event.id)
+    .get()
+    .then( async (x) => {
+      let idDelete = x.docs[0].id;
+      await firebase.firestore().collection("review_moive").doc(idDelete).delete();
+      alert("Bạn đã xóa bài viết thành công!! ")
+    })
+    .then(x => {
+      renderCardMovie();
+    })
+    .catch(function(){
+      alert(Error)
+    })
+  } else {
+    return;
+  }   
 }
-deleteCard();
+
+
+//  function deleteCard(){
+//   let btnDelete = [...document.querySelectorAll(".btn-danger")];
+// console.log(btnDelete)
+//   btnDelete.forEach(item => {
+//     item.addEventListener("click",() => {
+//       console.log(item.id)
+//     })
+//   })
+
+// }
+
+// deleteCard();

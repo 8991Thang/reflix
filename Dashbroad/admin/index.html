@@ -125,7 +125,7 @@
             </div>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="http://www.bootstrapdash.com/demo/corona-free/jquery/documentation/documentation.html">
+            <a class="nav-link" href="#">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
               </span>
@@ -564,20 +564,20 @@
                     <h4 class="card-title">Portfolio Slide</h4>
                     <div class="owl-carousel owl-theme full-width owl-carousel-dash portfolio-carousel" id="owl-carousel-basic">
                       <div class="item">
-                        <img src="assets/images/dashboard/Rectangle.jpg" alt="">
+                        <img src="#" alt="">
                       </div>
                       <div class="item">
-                        <img src="assets/images/dashboard/Img_5.jpg" alt="">
+                        <img src="#" alt="">
                       </div>
                       <div class="item">
-                        <img src="assets/images/dashboard/img_6.jpg" alt="">
+                        <img src="#" alt="">
                       </div>
                     </div>
                     <div class="d-flex py-4">
                       <div class="preview-list w-100">
                         <div class="preview-item p-0">
                           <div class="preview-thumbnail">
-                            <img src="assets/images/faces/face12.jpg" class="rounded-circle" alt="">
+                            <img src="#" class="rounded-circle" alt="">
                           </div>
                           <div class="preview-item-content d-flex flex-grow">
                             <div class="flex-grow">
@@ -673,7 +673,7 @@
           <!-- partial:partials/_footer.html -->
           <footer class="footer">
             <div class="d-sm-flex justify-content-center justify-content-sm-between">
-              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2019 <a href="https://www.bootstrapdash.com/" target="_blank">Reflix</a>. All rights reserved.</span>
+              <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2019 <a href="/" target="_blank">Reflix</a>. All rights reserved.</span>
               <span class="text-muted float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="mdi mdi-heart text-danger"></i></span>
             </div>
           </footer>
@@ -710,9 +710,12 @@
 
 let statusUser = document.querySelector(".status");
 
+
 async function getUser(){
+  let secondsTime = document.querySelector(".seconds-time");
+  statusUser.innerHTML = '';  
 let respon = await firebase.firestore().collection("status").onSnapshot((querySnapShot) => {
-  var secondsTime = document.querySelector(".seconds-time");
+
   for ( let doc of querySnapShot.docs){
     if(!doc.data()){
       return;
@@ -741,9 +744,9 @@ let respon = await firebase.firestore().collection("status").onSnapshot((querySn
                               <div class="badge badge-outline-success">Đang Truy Cập</div>
                             </td>
                           </tr>`;
-    }
-    renderTime();
-    runTime(doc.data().time.seconds);
+                        }
+                        renderTime();
+                        runTime(doc.data().time.seconds);
   }
 });
 function runTime(timeTotal){
@@ -752,9 +755,10 @@ function runTime(timeTotal){
       let hour = Math.floor(minutes / 60);
       let days = minutes / 60 % 24;
       document.querySelector('.seconds-time').innerText = seconds;
+      console.log(seconds)
+
       return seconds;
     }
-    runTime()
  setInterval(runTime,1000);
 }
 
@@ -767,13 +771,12 @@ async function renderCmt(){
     }
     
    let showData = dataCmt.filter(cmt => cmt.commentTotal.length > 0);
-   console.log(showData);
    showData.map(renderData => {
      let previewList = document.querySelector(".list-cmt");
          previewList.innerHTML += /*html*/`
      <div class="preview-item border-bottom">
                         <div class="preview-thumbnail">
-                          <img src="assets/images/faces/face11.jpg" alt="image" class="rounded-circle" />
+                          <img src="#" alt="image" class="rounded-circle" />
                         </div>
                         <div class="preview-item-content d-flex flex-grow">
                           <div class="flex-grow">

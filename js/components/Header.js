@@ -15,13 +15,16 @@ a{
 }
 
 .fixed__pc{
+	width:100vw; !important;
     top: 0 !important;
     position: fixed !important;
     left: 0;
     right: 0;
     margin: 0 auto;
     height: 75px;
-    animation: blur 1s;
+	animation: blur 1s;
+	background-color: #191025!important;
+    border-bottom: 1px solid #ea3b92;
 }
 @keyframes blur
 {0%{opacity:0}
@@ -31,12 +34,22 @@ a{
 	width: 100%;
 	left: 0;
 	top: 0;
-	z-index: 99;
-	padding: 15px 15px 0;
+	z-index: 999;
+	display:flex;
+	align-items: center;
+	justify-content: center;
 }
+.edit-nav{
+	width: 1550px;
+	display:flex;
+	align-items: center;
+	justify-content:space-between;
 
+}
 .header-warp {
-	max-width: 1550px;
+	display: flex;
+	justify-content:flex-end;
+	width:100%;
 	margin: 0 auto;
 }
 .hide{
@@ -68,12 +81,17 @@ a{
 	transition: all 0.3s;
 }
 .header-social{
+	width:90%;
+	border-bottom: 2px solid #ff009e;
+	margin-top :10px;
 	position: relative;
 	margin-bottom: 10px;
 }
 .nav_search{
 	position: absolute;
-	left:42%;
+	top:50%;
+	left:50%;
+	transform: translate(-50%, -50%);
 	z-index:999;
 }
 .nav_search input{
@@ -108,26 +126,34 @@ a{
 	top: 0 !important;
 }
 .header-bar-warp {
-	background: #081624;
-	padding: 39px 40px 0px;
-	box-shadow: 0 0 9px 3px rgba(255, 36, 0, 0.2);
+	height:80px;
+	align-items: center;
+		justify-content: space-between !important;
 }
 
 .site-logo {
     float: left;
 }
 .site-logo > img {
-    width : 150px;
+    width : 200px;
 }
 
 .user-panel {
-	float: right;
 	font-size: 16px;
 	font-weight: 500;
 	color: #fff;
-	padding-top: 3px;
+	right: 153px;
+	top:10px;
+    position: absolute;
 }
-
+.top-nav-area{
+	width:1300px;
+	<!-- height:100%; -->
+	display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: row-reverse;
+}
 .user-panel a {
     color: #fff;
     font-family: 'Roboto', sans-serif;
@@ -140,10 +166,14 @@ a{
 .main-menu {
 	list-style: none;
 	text-align: center;
-	padding-top: 3px;
+	margin: 0;
+	margin-right: 154px;
+	height:100%;
 }
 
 .main-menu li {
+	line-height: 80px;
+    height: 100%;
 	display: inline-block;
 	position: relative;
 }
@@ -157,24 +187,25 @@ a{
 	font-weight: 500;
 	color: #fff;
 	margin-right: 40px;
-	padding-bottom: 28px;
 	position: relative;
-	padding-right: 20px;
 	transition: all 0.5s ease;
+	background-color:transparent;
 }
-
-.arrow-down:after {
-	position: absolute;
-	content: "";
-	width: 20px;
-	height: 20px;
-	right: 0;
-	top: 1px;
-	background-image: url("../img/icons/arrow-down.png");
-	background-repeat: no-repeat;
-	background-position: right center;
+.active{
+	background-color: #ea3b92 !important;
 }
-
+.active:after{
+	content: '';
+    transform: skewX(-15deg);
+    -webkit-transform: skewX(-15deg);
+    background: #ea3b92;
+    position: absolute;
+    top: 0;
+    width: 29px;
+    bottom: 0;
+    right: -15px;
+    z-index: -1;
+}
 .main-menu li a i {
 	color: #928d92;
 }
@@ -200,10 +231,6 @@ a{
 }
 .after{
     cursor: pointer;
-    position: absolute;
-    content: "";
-    right: 5px;
-    top: 30px;
     background-repeat: no-repeat;
 	background-position: right center;  
 	
@@ -228,7 +255,7 @@ a{
 	text-align: left;
 	width: 830px;
 	left: 0;
-	top: 133%;
+	top: 105%;
 	visibility: hidden;
 	opacity: 0;
 	margin-top: 50px;
@@ -279,9 +306,6 @@ a{
 }
 .user{
 	font-weight:700;
-	right: 64px;
-    top: 13px;
-    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -302,7 +326,7 @@ a{
 	float:left;
 	position: absolute;
 	text-align : center;
-	right: -65px;
+	right: -33px;
 	top : 170%;
 	background : #302525;
 	border : 1.5px solid white;
@@ -321,7 +345,7 @@ a{
 	background : #003366
 }
 .show{
-	top : 80%;
+	top : 86%;
 	opacity : 1;
 }
 .rotate{
@@ -792,6 +816,17 @@ a, a:hover {
 .comment__list:hover,.show__like:hover{
 	transform:scale(1.3)
 }
+.popcorn{
+	width:300px;
+	text-align:right;
+}
+.popcorn img{
+	width:70px;
+	margin-right: 30px;
+}
+.popcorn img:nth-child(1),.popcorn img:nth-child(2){
+	width:45px;
+}
 </style>
 `;
 class Header extends BaseComponent {
@@ -848,57 +883,70 @@ class Header extends BaseComponent {
 
 <!-- Header section -->
 <header class="header-section">
-	<div class="header-warp">
-		<div class="nav_search">
-			<input class="input__search" type="text" placeholder="Tìm Kiếm">
-			<div class="btn__search">
-				<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-					<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
-					<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
-				</svg>
-			</div>
+	<div class="edit-nav">
+	<div class="">
+	<a href="/index.html" class="site-logo">
+		<img src="/img/logo/logo2.png" alt="reflix">
+	</a>
+</div>
+<div class="header-warp">
+	<div>
+	<div class="header-social d-flex justify-content-between align-items-center">
+	<div class="popcorn">
+	<img src="/img/logo/Firstfear-Whistlepuff-Video-file.ico" alt="">
+	<img src="/img/logo/img_560158.png" alt="">
+		<img src="/img/logo/popcorn-movie-time-512.webp" alt="">
+	</div>
+	<div>
+		<p>Follow us:</p>
+		<a href="#"><img src="https://img.icons8.com/plasticine/2x/facebook-new.png" alt="fb" srcset=""></a>
+		<a href="#"><img style="width : 30px;height:29px"  src="https://i.pinimg.com/originals/36/03/d6/3603d632370eb53f2fd0e59ba7de236b.png" alt="tw"></a>
+		<a href="#"><img src="https://img.icons8.com/plasticine/2x/google-logo.png" alt="" srcset=""></a>
+	</div>
+	<div class="nav_search">
+		<input class="input__search" type="text" placeholder="Tìm Kiếm">
+		<div class="btn__search">
+			<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-search" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+				<path fill-rule="evenodd" d="M10.442 10.442a1 1 0 0 1 1.415 0l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1 1 0 0 1 0-1.415z"/>
+				<path fill-rule="evenodd" d="M6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11zM13 6.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0z"/>
+			</svg>
 		</div>
-        <div class="header-social d-flex justify-content-end">
-            <p>Follow us:</p>
-            <a href="#"><img src="https://img.icons8.com/plasticine/2x/facebook-new.png" alt="fb" srcset=""></a>
-            <a href="#"><img style="width : 30px;height:29px"  src="https://i.pinimg.com/originals/36/03/d6/3603d632370eb53f2fd0e59ba7de236b.png" alt="tw"></a>
-            <a href="#"><img src="https://img.icons8.com/plasticine/2x/google-logo.png" alt="" srcset=""></a>
-        </div>
-        <div class="sticky header-bar-warp d-flex">
-            <a href="/index.html" class="site-logo">
-                <img src="/img/logo/l.png" alt="reflix">
-            </a>
-            <nav class="top-nav-area w-100">
-				<div class="user-panel">
-                   ${userName}
-                </div>
-                <!-- Menu -->
-                <ul class="main-menu primary-menu">
-                    <li><a href="/index.html">Trang Chủ </a></li>
-                    <li><a href="/reviewtotal.html">Review Phim</a></li>
-                    <li><a href="" class="arrow-down">Thể Loại</a>
-                        <ul class="sub-menu">
-                            <li class="type-movie" >Hành Động</li>
-                            <li class="type-movie">Tình Cảm</li>
-                            <li class="type-movie">Viễn Tưởng</li>
-                            <li class="type-movie">Hoạt Hình</li>
-                            <li class="type-movie">Hài Hước</li>
-                            <li class="type-movie">Kinh Dị</li>
-                            <li class="type-movie">Tội Phạm</li>
-                        </ul>
-                    </li>
-					<li><a href="" class="arrow-down">Bảng Xếp Hạng Điểm IMDB</a>
-						<ul class="sub-menu" style="width : 400px" >
-							<li>Năm 2018</li>
-							<li>Năm 2019</li>
-							<li>Năm 2020</li>
-						</ul>
-					</li>
-                    <li><a href="contact.html">Giới Thiệu Reflix</a></li>
-                </ul>
-            </nav>
-        </div>
-    </div>
+	</div>
+</div>
+<div class="sticky header-bar-warp d-flex">
+	<nav class="top-nav-area">
+		<div class="user-panel">
+		   ${userName}
+		</div>
+		<!-- Menu -->
+		<ul class="main-menu primary-menu">
+			<li><a href="/index.html" class="active">Trang Chủ </a></li>
+			<li><a href="/reviewtotal.html">Review Phim</a></li>
+			<li><a href="" class="arrow-down">Thể Loại</a>
+				<ul class="sub-menu">
+					<li class="type-movie" >Hành Động</li>
+					<li class="type-movie">Tình Cảm</li>
+					<li class="type-movie">Viễn Tưởng</li>
+					<li class="type-movie">Hoạt Hình</li>
+					<li class="type-movie">Hài Hước</li>
+					<li class="type-movie">Kinh Dị</li>
+					<li class="type-movie">Tội Phạm</li>
+				</ul>
+			</li>
+			<li><a href="" class="arrow-down">Bảng Xếp Hạng Điểm IMDB</a>
+				<ul class="sub-menu" style="width : 400px" >
+					<li>Năm 2018</li>
+					<li>Năm 2019</li>
+					<li>Năm 2020</li>
+				</ul>
+			</li>
+			<li><a href="contact.html">Giới Thiệu Reflix</a></li>
+		</ul>
+	</nav>
+</div>
+	</div>
+</div>
+	</div>
 </header>
 <div class="box">
 	<div class="hoso">
@@ -1152,11 +1200,21 @@ class Header extends BaseComponent {
 	window.addEventListener("scroll",(e) => {
 		const data = JSON.parse(localStorage.getItem("user"));
 		let navPC = this._shadowRoot.querySelector(".header-warp");
+		let topNav = this._shadowRoot.querySelector(".top-nav-area");
+		
+
 		navPC.classList.toggle("fixed__pc",window.scrollY > 0);
+		topNav.classList.toggle("fixed__pc",window.scrollY > 0);
+
 		let navSocail = this._shadowRoot.querySelector(".header-social");
 		navSocail.classList.toggle("hide",window.scrollY > 0)
 		this._shadowRoot.querySelector('.header-bar-warp').classList.toggle("opacity-bg",window.scrollY > 0)
 		this._shadowRoot.querySelector('.nav_search').classList.toggle("hide",window.scrollY > 0)
+		this._shadowRoot.querySelector('.openModal').classList.toggle("hide",window.scrollY > 0)
+		this._shadowRoot.querySelector('.afterUser').classList.toggle("hide",window.scrollY > 0)
+
+		
+
 		if (data){
 			this._shadowRoot.querySelector('.user').classList.toggle("right",window.scrollY > 0)
 		}
@@ -1297,28 +1355,31 @@ class Header extends BaseComponent {
 	async countLikeMovie(){
 		let dataLike = [];
 		let dataUser = JSON.parse(localStorage.getItem("user"));
-		let userLike = await firebase.firestore().collection("users").where("email","==",dataUser.email).get();
-		for( let doc of userLike.docs){
-			dataLike.push(doc.data().likeMovie);
-			if(!doc.data().likeMovie){
-				return;
+		if(dataUser){
+			let userLike = await firebase.firestore().collection("users").where("email","==",dataUser.email).get();
+			for( let doc of userLike.docs){
+				dataLike.push(doc.data().likeMovie);
+				if(!doc.data().likeMovie){
+					return;
+				}
+				else{
+					this._shadowRoot.querySelector(".like").innerText = doc.data().likeMovie.length;
+	
+				}
 			}
-			else{
-				this._shadowRoot.querySelector(".like").innerText = doc.data().likeMovie.length;
-
-			}
+			let showLike = this._shadowRoot.querySelector(".show__like");
+			showLike.addEventListener("click", ()=>{
+				if(dataLike[0].length > 0){
+					dataLike[0].forEach(x => {
+						alert(`Bạn đã thích phim "${x.name}" vào lúc : "${x.time}"`)
+					})
+				}
+				else{
+					return;
+				}
+			})
 		}
-		let showLike = this._shadowRoot.querySelector(".show__like");
-		showLike.addEventListener("click", ()=>{
-			if(dataLike[0].length > 0){
-				dataLike[0].forEach(x => {
-					alert(`Bạn đã thích phim "${x.name}" vào lúc : "${x.time}"`)
-				})
-			}
-			else{
-				return;
-			}
-		})
+		
 	}
 	async editUserInfo(){
 		let data = JSON.parse(localStorage.getItem("user"));

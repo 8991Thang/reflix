@@ -17,20 +17,34 @@ async function renderSlice(){
                         <div class="movie__items-poster">
                             <a href=""> <img class="img-poster" src="${data.data().img}" alt="poster"></a>
                             <div class="movie__items-poster-info">
-                                <a href="">Chi tiết</a>
+                                <a id="${data.data().name}" class="click">Chi tiết</a>
                                 <a target="_blank" href="${data.data().trailer}">Trailer</a>
                                 <p><b>Thời lượng</b> : ${data.data().time}</p>
                                 <p><b>Thể Loại</b> : ${data.data().type}</p>
                             </div>
                         </div>
                         <div class="movie__items-detail">
-                            <h2><a href="">${data.data().name}</a></h2>
+                            <h2><p style="font-size:24px" class="name__movie">${data.data().name}</p></h2>
                             <p><b>Thời lượng</b> : ${data.data().time}</p>
                             <p><b>Ngày Khởi Chiếu</b> : ${data.data().date}</p>
                         </div>
                     </div>
         `
     }
+    let nameMovie = [...document.querySelectorAll(".name__movie")];
+    nameMovie.forEach(i => {
+        i.addEventListener("click",() => {
+            localStorage.setItem("idMovie", i.innerText);
+            window.location.href = "/moviePage.html"
+        })
+    })
+    let idNew = [...document.querySelectorAll(".click")];
+    idNew.forEach(i => {
+        i.addEventListener("click",() => {
+            localStorage.setItem("idMovie", i.id);
+            window.location.href = "/moviePage.html"
+        })
+    })
 }
 renderSlice();
 
@@ -176,7 +190,7 @@ async function renderLeftReview(){
                                 <img src="${dataLeft[numberA].img}" alt="">
                             </div>
                             <div class="news_movie-img-title ">
-                                <div><a href="#" class="title">${dataLeft[numberA].name}</a></div>
+                                <div><p class="title">${dataLeft[numberA].name}</p></div>
                                 <div><p class="time pt-2"><i class="far fa-clock"></i>  ${dataLeft[numberA].date}</p></div>
                             </div>
                         </div>
@@ -185,7 +199,7 @@ async function renderLeftReview(){
                                 <img src="${dataLeft[numberB].img}" alt="">
                             </div>
                             <div class="news_movie-img-title ">
-                                <div><a href="#" class="title">${dataLeft[numberB].name}</a></div>
+                                <div><p  class="title">${dataLeft[numberB].name}</p></div>
                                 <div><p class="time pt-2"> <i class="far fa-clock"></i> ${dataLeft[numberB].date}</p></div>
                             </div>
                         </div>
@@ -194,7 +208,7 @@ async function renderLeftReview(){
                                 <img src="${dataLeft[numberC].img}" alt="">
                             </div>
                             <div class="news_movie-img-title ">
-                                <div><a href="#" class="title">${dataLeft[numberC].name}</a></div>
+                                <div><p  class="title">${dataLeft[numberC].name}</p></div>
                                 <div><p class="time pt-2"><i class="far fa-clock"></i> ${dataLeft[numberC].date}</p></div>
                             </div>
                         </div>
@@ -203,12 +217,19 @@ async function renderLeftReview(){
                                 <img src="${dataLeft[numberD].img}" alt="">
                             </div>
                             <div class="news_movie-img-title ">
-                                <div><a href="#" class="title">${dataLeft[numberD].name}</a></div>
+                                <div><p  class="title">${dataLeft[numberD].name}</p></div>
                                 <div><p class="time pt-2"><i class="far fa-clock"></i> ${dataLeft[numberD].date}</p></div>
                             </div>
                         </div>
 
     `
-
+    let clickTitle = [...document.querySelectorAll(".title")];
+    clickTitle.forEach(i => {
+        i.addEventListener("click",() =>{
+            localStorage.setItem("idMovie",i.innerText);
+            console.log(i.innerText);
+            window.location.href = "/moviePage.html"
+        })
+    })
 }
 renderLeftReview()

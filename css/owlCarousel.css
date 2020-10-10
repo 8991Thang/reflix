@@ -2,6 +2,7 @@
     margin :0;
     padding :0;
     box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
 } 
 Html, body 
 {
@@ -251,4 +252,12 @@ h6{
         filter: hue-rotate(720deg)
 
     }
+}
+.title:hover{
+    cursor: pointer;
+    text-decoration:underline;
+}
+.click{
+    color:white !important;
+    cursor: pointer;
 }

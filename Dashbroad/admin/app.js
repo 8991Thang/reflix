@@ -145,12 +145,12 @@ window.addEventListener("load", () => {
 });
 // scroll bar
 
-let progress = document.querySelector("#progressbar");
+// let progress = document.querySelector("#progressbar");
 
-let totalHeight = document.body.scrollHeight - window.innerHeight;
+// let totalHeight = document.body.scrollHeight - window.innerHeight;
 
-window.onscroll = function(){
-let progressHeight = (window.pageYOffset / totalHeight) * 100;
-progress.style.height = progressHeight + "%";
-}
-// 
+// window.onscroll = function(){
+// let progressHeight = (window.pageYOffset / totalHeight) * 100;
+// progress.style.height = progressHeight + "%";
+// }
+// // 
