@@ -321,7 +321,7 @@ class IntroMovie extends BaseComponent {
                                 <div class="modal">
                                     <div class="modal-trailer">
                                         <span class="close">Close</span>
-                                        <iframe width="860" height="615" src="${this.props.trailer}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                        <iframe class="video" width="860" height="615" src="${this.props.trailer}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     </div>
                                 </div>
                             </div>
@@ -346,10 +346,15 @@ class IntroMovie extends BaseComponent {
         this.$modal = this._shadowRoot.querySelector('.modal')
         this.$close = this._shadowRoot.querySelector('.close')
         this.$btnTrailer = this._shadowRoot.querySelector('.btn-trailer');
+        this.$video = this._shadowRoot.querySelector('.video');
         this.$btnTrailer.onclick = () => {
             this.$modal.style.display = "block";
         }
         this.$close.onclick = () => {
+            
+            let tmp = this.$video.src;
+            this.$video.src = tmp;
+
             this.$modal.style.display = "none";
         }
         
