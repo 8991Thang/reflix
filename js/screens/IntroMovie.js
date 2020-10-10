@@ -272,6 +272,9 @@ const style = /*html */ `
 
   }
 } 
+html {
+    scroll-behavior: smooth;
+}
     </style>
 `
 class IntroMovie extends BaseComponent {
@@ -334,6 +337,7 @@ class IntroMovie extends BaseComponent {
                     </div>
                 </div>
             </div>
+            <div class="end"></div>
             <button type="button" class="btn btn-secondary heart" data-toggle="tooltip" data-placement="top" title="Like this MOVIE">
             &#x2665;
 </button>
@@ -351,6 +355,8 @@ class IntroMovie extends BaseComponent {
         
         this.$btnDetail = this._shadowRoot.querySelector('.btn-detail')
         this.$btnDetail.onclick = () => {
+            let el = this._shadowRoot.querySelector('.end')
+            el.scrollIntoView({behavior: "smooth"})
         }
         
         //like movie review
