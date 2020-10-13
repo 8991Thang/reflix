@@ -167,7 +167,7 @@ a{
 	list-style: none;
 	text-align: center;
 	margin: 0;
-	margin-right: 154px;
+	margin-right: 274px;
 	height:100%;
 }
 
@@ -176,6 +176,7 @@ a{
     height: 100%;
 	display: inline-block;
 	position: relative;
+	margin-left:40px;
 }
 
 .main-menu li a {
@@ -186,13 +187,34 @@ a{
 	font-size: 16px;
 	font-weight: 500;
 	color: #fff;
-	margin-right: 40px;
+	width:100%;
+	text-align: center;
 	position: relative;
 	transition: all 0.5s ease;
 	background-color:transparent;
 }
 .active{
 	background-color: #ea3b92 !important;
+}
+
+.li-style:hover{
+	background-color: #ea3b92 !important;
+}
+.li-style:hover .li-style a:after{	
+	visibility: visible;
+}
+.li-style a:after{
+	content: '';
+    transform: skewX(-15deg);
+    -webkit-transform: skewX(-15deg);
+    background: #ea3b92;
+    position: absolute;
+    top: 0;
+    width: 29px;
+    right: -15px;
+    z-index: -1;
+    bottom: 0;
+	visibility: hidden;	
 }
 .active:after{
 	content: '';
@@ -211,14 +233,8 @@ a{
 }
 
 .main-menu li a:hover {
-	color: red;
-	transform:scale(1.2)
 }
 
-
-.main-menu li a:hover i {
-	color: red;
-}
 
 .main-menu li:hover .sub-menu {
 	visibility: visible;
@@ -226,9 +242,7 @@ a{
 	margin-top: 0;
 }
 
-.main-menu li:hover>a {
-	color: red;
-}
+
 .after{
     cursor: pointer;
     background-repeat: no-repeat;
@@ -240,15 +254,18 @@ a{
     position: absolute;
 	content: "";
 	width:40px;
-    right: -7px;
-    top: 35px;
+	right: -23px;
+    top: 27px;
    background-image: url(../img/icons/arrow-down.png);
     background-repeat: no-repeat;
 	background-position: right center;
 	transition: all 0.5s ease;
-	
 }
-
+.xoayngang{
+	width: auto;
+	justify-content:space-between !important;
+	flex-direction: row-reverse !important;
+}
 .main-menu li .sub-menu {
 	position: absolute;
 	list-style: none;
@@ -298,9 +315,6 @@ a{
 	display: none;
 }
 
-.main-menu li .sub-menu li a:hover {
-	color: red;
-}
 .slicknav_menu {
 	display: none;
 }
@@ -827,6 +841,12 @@ a, a:hover {
 .popcorn img:nth-child(1),.popcorn img:nth-child(2){
 	width:45px;
 }
+.login{
+	margin-top: 15px !important;
+}
+.margin-r{
+	margin-right: 15px;
+}
 </style>
 `;
 class Header extends BaseComponent {
@@ -838,7 +858,8 @@ class Header extends BaseComponent {
     const data = localStorage.getItem("user");
     const dataConvert = JSON.parse(data);
     if (data) {
-      if (dataConvert.admin) {
+		let adUser = await firebase.firestore().collection("users").where("email","==",dataConvert.email).get();
+      if (adUser.docs[0].data().admin == true) {
         var admin = `<li><a target="_blank" tag href="/Dashbroad/admin/index.html">Manager</a></li>`;
       } else {
         var admin = "";
@@ -867,7 +888,7 @@ class Header extends BaseComponent {
     }
     var userName = data
       ? `${dataUser}`
-      : ` <a href="/login.index.html">Login</a> / <a href="/register.index.html">Register</a>`;
+      : ` <div class="login"><a href="/index2.html#!/login">Login</a> / <a href="/index2.html#!/register">Register</a> </div>`;
 
     this._shadowRoot.innerHTML = /*html*/ `
 		<!-- Page Preloder -->
@@ -921,8 +942,8 @@ class Header extends BaseComponent {
 		<!-- Menu -->
 		<ul class="main-menu primary-menu">
 			<li><a href="/index.html" class="active">Trang Chủ </a></li>
-			<li><a href="/reviewtotal.html">Review Phim</a></li>
-			<li><a href="" class="arrow-down">Thể Loại</a>
+			<li class="li-style"><a href="/index2.html#!/review">Review Phim</a></li>
+			<li class="li-style"><a href="" class="arrow-down">Thể Loại</a>
 				<ul class="sub-menu">
 					<li class="type-movie" >Hành Động</li>
 					<li class="type-movie">Tình Cảm</li>
@@ -930,17 +951,11 @@ class Header extends BaseComponent {
 					<li class="type-movie">Hoạt Hình</li>
 					<li class="type-movie">Hài Hước</li>
 					<li class="type-movie">Kinh Dị</li>
-					<li class="type-movie">Tội Phạm</li>
 				</ul>
 			</li>
-			<li><a href="" class="arrow-down">Bảng Xếp Hạng Điểm IMDB</a>
-				<ul class="sub-menu" style="width : 400px" >
-					<li>Năm 2018</li>
-					<li>Năm 2019</li>
-					<li>Năm 2020</li>
-				</ul>
+			<li class="li-style"><a href="" class="arrow-down">News Movie</a>
 			</li>
-			<li><a href="contact.html">Giới Thiệu Reflix</a></li>
+			<li class="li-style"><a href="contact.html">Giới Thiệu Reflix</a></li>
 		</ul>
 	</nav>
 </div>
@@ -1205,14 +1220,15 @@ class Header extends BaseComponent {
 
 		navPC.classList.toggle("fixed__pc",window.scrollY > 0);
 		topNav.classList.toggle("fixed__pc",window.scrollY > 0);
-
 		let navSocail = this._shadowRoot.querySelector(".header-social");
 		navSocail.classList.toggle("hide",window.scrollY > 0)
 		this._shadowRoot.querySelector('.header-bar-warp').classList.toggle("opacity-bg",window.scrollY > 0)
 		this._shadowRoot.querySelector('.nav_search').classList.toggle("hide",window.scrollY > 0)
-		this._shadowRoot.querySelector('.openModal').classList.toggle("hide",window.scrollY > 0)
-		this._shadowRoot.querySelector('.afterUser').classList.toggle("hide",window.scrollY > 0)
-
+		if(data){
+			this._shadowRoot.querySelector('.user').classList.toggle("xoayngang",window.scrollY > 0)
+			this._shadowRoot.querySelector('.openModal').classList.toggle("margin-r",window.scrollY > 0)
+		}
+		
 		
 
 		if (data){

@@ -183,7 +183,7 @@ class Register extends BaseComponent {
                     </div>
                     <div class="form-group">
                         <input type="submit" name="submit" id="submit" class="form-submit submit" value="Sign up"/>
-                        <a href="/login.index.html" class="submit-link submit btn-register">Sign in</a>
+                        <a href="/index2.html#!/login" class="submit-link submit btn-register">Sign in</a>
                     </div>
                 </form>
                 <div class="social">
@@ -322,7 +322,7 @@ class Register extends BaseComponent {
     async function addUser(data){
       await firebase.add(data);
       alert("Register Sucessfully");
-      window.location.href = "/login.index.html";
+      window.location.href = "/index2.html#!/login";
     }
     async function readData(){
       const result = await firebase.get();

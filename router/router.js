@@ -9,6 +9,19 @@ window.router.on('/login', function(){
 window.router.on('/register', function(){
     app.innerHTML = " <register-screen></-screen>";
 }).resolve()
+window.router.on('/review', function(){
+    app.innerHTML = `
+    <header-component></header-component>
+    <review-total></review-total>
+    <footer-component></footer-component>`;
+}).resolve()
+window.router.on('/reviewTotal', function(){
+    app.innerHTML = `
+    <header-component></header-component>
+    <total-review></total-review>
+    <footer-component></footer-component>`;
+}).resolve()
+
 // window.router.on('/review', function(){
 
 // })

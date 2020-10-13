@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Review phim</title>
     <script src="https://kit.fontawesome.com/aeafc74a1b.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" type="image/png" href="/img/logo/movie-website-2055755-1733976.png">
         <!-- The core Firebase JS SDK is always required and must be listed first -->
     <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+       <!-- router -->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/navigo/7.1.2/navigo.min.js"></script>
 <style>
   html,body{
     max-width: 100%;
@@ -16,8 +20,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #081b27;
-
   }
   .preload {
     position: fixed;
@@ -27,7 +29,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: opacity 0s ease-in-out 0.3s;
+      transition: opacity 0s ease-in-out 0.2s;
       transition-duration: 0.1s;
       background-image: url('/img/icons/source.gif');
       background-repeat: no-repeat; 
@@ -58,9 +60,9 @@
    <!-- scroll bar -->
    <div id="progressbar"></div>
    <div id="scrollPath"></div>
-<header-component></header-component>
-<review-total></review-total>
-<footer-component></footer-component>
+    <header-component></header-component>
+    <news-detail></news-detail>
+    <footer-component></footer-component>
 
 <script>
       // Your web app's Firebase configuration

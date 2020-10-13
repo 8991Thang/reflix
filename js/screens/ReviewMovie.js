@@ -5,6 +5,7 @@ const style = /*html */ `
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif;
 
 }
 .review-container{
@@ -160,6 +161,8 @@ class ReviewMovie extends BaseComponent {
         let avatarDefault = 'https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png'
         let avatar = !dataUser ? avatarDefault : dataUser.avatar; 
         this._shadowRoot.innerHTML = /*html */ `
+        <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" rel="stylesheet">
+
         ${style}
         <div class="review-container">
             <div class="container">

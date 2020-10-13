@@ -1,4 +1,5 @@
 import {BaseComponent} from '../screens/BaseComponent.js'
+import {shuffle} from '../screens/untils.js'
 const style = /*html*/ `
 <style>
 *{
@@ -6,6 +7,7 @@ const style = /*html*/ `
     padding: 0;
     box-sizing: border-box;
     font-family: 'Quicksand', sans-serif;
+    font-weight:bold;
 }
 .container__suggest{
     margin-top:100px;
@@ -81,10 +83,6 @@ class SuggestReview extends BaseComponent {
                         <p>Bài Viết Mới</p>
                     </div>
                     <div class="suggest__body">
-                        <div class="item">
-                            <img src="/img/background/1920x1080-11.jpg" alt="">
-                            <p>Name </p>
-                        </div>
                     </div>
                 </div>
             </div>
@@ -98,39 +96,35 @@ class SuggestReview extends BaseComponent {
         for ( let doc of db.docs){
             data.push(doc.data())
         }
-        let oneRandom = Math.floor(Math.random()* data.length);
-        let twoRandom = Math.floor(Math.random()* data.length);
-        let threeRandom = Math.floor(Math.random()* data.length);
-        let fourRandom = Math.floor(Math.random()* data.length);
-        let fiveRandom = Math.floor(Math.random()* data.length);
-        let sixRandom = Math.floor(Math.random()* data.length);
+        let randomArr = Array.from(Array(data.length).keys());
+        let randomNumber = [];
+        randomNumber.push(shuffle(randomArr))
         this._shadowRoot.querySelector(".suggest__body").innerHTML = /*html*/`
         <div class="item">
-            <img src="${data[oneRandom].imgblur}" alt="">
-            <p class="suggest__text">${data[oneRandom].name}</p>
+            <img src="${data[randomNumber[0][7]].imgblur}" alt="">
+            <p class="suggest__text">${data[randomNumber[0][7]].name}</p>
         </div>
         <div class="item">
-            <img src="${data[twoRandom].imgblur}" alt="">
-            <p class="suggest__text">${data[twoRandom].name}</p>
+            <img src="${data[randomNumber[0][2]].imgblur}" alt="">
+            <p class="suggest__text">${data[randomNumber[0][2]].name}</p>
         </div>
         <div class="item">
-            <img src="${data[threeRandom].imgblur}" alt="">
-            <p class="suggest__text">${data[threeRandom].name}</p>
+            <img src="${data[randomNumber[0][3]].imgblur}" alt="">
+            <p class="suggest__text">${data[randomNumber[0][3]].name}</p>
         </div>
         <div class="item">
-            <img src="${data[fourRandom].imgblur}" alt="">
-            <p class="suggest__text">${data[fourRandom].name}</p>
+            <img src="${data[randomNumber[0][1]].imgblur}" alt="">
+            <p class="suggest__text">${data[randomNumber[0][1]].name}</p>
         </div>
         <div class="item">
-            <img src="${data[fiveRandom].imgblur}" alt="">
-            <p class="suggest__text">${data[fiveRandom].name}</p>
+            <img src="${data[randomNumber[0][6]].imgblur}" alt="">
+            <p class="suggest__text">${data[randomNumber[0][6]].name}</p>
         </div>
         <div class="item">
-            <img src="${data[sixRandom].imgblur}" alt="">
-            <p class="suggest__text">${data[sixRandom].name}</p>
+            <img src="${data[randomNumber[0][9]].imgblur}" alt="">
+            <p class="suggest__text">${data[randomNumber[0][9]].name}</p>
         </div>
         `
-
         let dataClick = [...this._shadowRoot.querySelectorAll(".suggest__text")];
         for ( let i = 0 ; i < dataClick.length; i++){
             dataClick[i].addEventListener("click", () => {

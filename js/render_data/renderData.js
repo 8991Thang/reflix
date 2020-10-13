@@ -63,78 +63,72 @@ async function renderReview(){
     for ( let data of respon.docs){
         dataArr.push(data.data());
     }
-    let numberA = Math.floor(Math.random() * dataArr.length);
-    let numberB = Math.floor(Math.random() * dataArr.length);
-    let numberC = Math.floor(Math.random() * dataArr.length);
-    let numberD = Math.floor(Math.random() * dataArr.length);
-
-    if(numberA == numberB ) numberB++;
-    if(numberA == numberC ) numberC++;
-    if(numberA == numberD ) numberD++;
-    if(numberB == numberC ) numberC++;
-    if(numberB == numberD ) numberD++;
-    if(numberC == numberD ) numberD++;
-    if(numberB > dataArr.length) numberB -= 1;
-    if(numberC > dataArr.length) numberC -= 1;
-    if(numberD > dataArr.length) numberD = 1;
-    if(numberA == numberB ) numberB++;
-    if(numberA == numberC ) numberC++;
-    if(numberA == numberD ) numberD++;
-    if(numberB == numberC ) numberC++;
-    if(numberB == numberD ) numberD++;
-    if(numberC == numberD ) numberD++;
-    if(numberB > dataArr.length) numberB -= 1;
-    if(numberC > dataArr.length) numberC -= 1;
-    if(numberD > dataArr.length) numberD = 1;
+    let randomNumber = Array.from(Array(dataArr.length).keys());
+    //random function
+    function shuffle(array) {
+        var currentIndex = array.length,
+          temporaryValue,
+          randomIndex;
   
-
+        while (0 !== currentIndex) {
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+  
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+  
+        return array;
+      }
+    let random = [...shuffle(randomNumber)];
     reviewMovie.innerHTML = /*html*/`
     <div class="news__img">
     <div class="news__img-center position-relative" >
         <div class="img__center ">
-            <img src="${dataArr[numberA].img}" alt="joker">
+            <img src="${dataArr[random[0]].img}" alt="joker">
         </div>
         <div class="img__info position-absolute d-flex flex-column justify-content-around pl-4">
             <p>Review</p>
             <a href="/review.html" class="img__title">
-                <span class="name__review">${dataArr[numberA].name} </span>
+                <span class="name__review">${dataArr[random[0]].name} </span>
             </a>
             <div class="img__time w-50 d-flex flex-row justify-content-between">
-                <span>by<b> : ${dataArr[numberA].by} / </b></span>
-                <span><i class="far fa-clock"></i> ${dataArr[numberA].time}</span>
-                <span>/ <i class="far fa-comment-dots"></i> ${dataArr[numberA].commentTotal.length}</span>
+                <span>by<b> : ${dataArr[random[0]].by} / </b></span>
+                <span><i class="far fa-clock"></i> ${dataArr[random[0]].time}</span>
+                <span>/ <i class="far fa-comment-dots"></i> ${dataArr[random[0]].commentTotal.length}</span>
             </div>
         </div>
         <div class="blur w-100 position-absolute"></div>
     </div>
     <div class="news__img-footer d-flex">
         <div class="news__img-footer-total">
-            <div><img src="${dataArr[numberB].img}" alt="" ></div>
+            <div><img src="${dataArr[random[1]].img}" alt="" ></div>
             <span class="review">Review</span>
-            <a href="/review.html" class="name__review">${dataArr[numberB].name}</a>
+            <a href="/review.html" class="name__review">${dataArr[random[1]].name}</a>
 
             <div class="news__img-footer-time">
-                <span><i class="far fa-clock"></i> ${dataArr[numberB].time}</span>
-                <span>/ <i class="far fa-comment-dots"></i> ${dataArr[numberB].commentTotal.length}</span>
+                <span><i class="far fa-clock"></i> ${dataArr[random[1]].time}</span>
+                <span>/ <i class="far fa-comment-dots"></i> ${dataArr[random[1]].commentTotal.length}</span>
             </div>
         </div>
         <div class="news__img-footer-total">
-            <div><img src="${dataArr[numberC].img}" alt="" ></div>
+            <div><img src="${dataArr[random[8]].img}" alt="" ></div>
             <span class="review">Review</span>
-            <a href="/review.html" class="name__review">${dataArr[numberC].name}</a>
+            <a href="/review.html" class="name__review">${dataArr[random[8]].name}</a>
 
             <div class="news__img-footer-time">
-                <span><i class="far fa-clock"></i> ${dataArr[numberC].time}</span>
-                <span>/ <i class="far fa-comment-dots"></i> ${dataArr[numberC].commentTotal.length}</span>
+                <span><i class="far fa-clock"></i> ${dataArr[random[8]].time}</span>
+                <span>/ <i class="far fa-comment-dots"></i> ${dataArr[random[8]].commentTotal.length}</span>
             </div>
         </div>
         <div class="news__img-footer-total">
-            <div><img src="${dataArr[numberD].img}" alt="" ></div>
+            <div><img src="${dataArr[random[6]].img}" alt="" ></div>
             <span class="review">Review</span>
-            <a href="/review.html" class="name__review">${dataArr[numberD].name}</a>
+            <a href="/review.html" class="name__review">${dataArr[random[6]].name}</a>
             <div class="news__img-footer-time">
-                <span><i class="far fa-clock"></i> ${dataArr[numberD].time}</span>
-                <span>/ <i class="far fa-comment-dots"></i> ${dataArr[numberD].commentTotal.length}</span>
+                <span><i class="far fa-clock"></i> ${dataArr[random[6]].time}</span>
+                <span>/ <i class="far fa-comment-dots"></i> ${dataArr[random[6]].commentTotal.length}</span>
             </div>
         </div>
         
@@ -157,68 +151,62 @@ async function renderLeftReview(){
     for ( let data of respon.docs){
         dataLeft.push(data.data());
     }
-    let numberA = Math.floor(Math.random() * dataLeft.length);
-    let numberB = Math.floor(Math.random() * dataLeft.length);
-    let numberC = Math.floor(Math.random() * dataLeft.length);
-    let numberD = Math.floor(Math.random() * dataLeft.length);
-
-    if(numberA == numberB ) numberB++;
-    if(numberA == numberC ) numberC++;
-    if(numberA == numberD ) numberD++;
-    if(numberB == numberC ) numberC++;
-    if(numberB == numberD ) numberD++;
-    if(numberC == numberD ) numberD++;
-    if(numberB > dataLeft.length) numberB -= 1;
-    if(numberC > dataLeft.length) numberC -= 1;
-    if(numberD > dataLeft.length) numberD = 1;
-    if(numberA == numberB ) numberB++;
-    if(numberA == numberC ) numberC++;
-    if(numberA == numberD ) numberD++;
-    if(numberB == numberC ) numberC++;
-    if(numberB == numberD ) numberD++;
-    if(numberC == numberD ) numberD++;
-    if(numberB > dataLeft.length) numberB -= 1;
-    if(numberC > dataLeft.length) numberC -= 1;
-    if(numberD > dataLeft.length) numberD = 1;
+    let dataRandow = Array.from(Array(dataLeft.length).keys());
+    function shuffle(array) {
+        var currentIndex = array.length,
+          temporaryValue,
+          randomIndex;
   
+        while (0 !== currentIndex) {
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+  
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+  
+        return array;
+      }
+    let random = [...shuffle(dataRandow)];
     renderLeft.innerHTML = /*html*/ `
     <div class="news__moive-title">
                             <p>News Movie ToDay</p>
                         </div>
                         <div class="news__moive-title d-flex justify-content-between wow fadeInRightBig" data-wow-duration="0.5s" data-wow-offset="250">
                             <div class="news__moive-img">
-                                <img src="${dataLeft[numberA].img}" alt="">
+                                <img src="${dataLeft[random[2]].img}" alt="">
                             </div>
                             <div class="news_movie-img-title ">
-                                <div><p class="title">${dataLeft[numberA].name}</p></div>
-                                <div><p class="time pt-2"><i class="far fa-clock"></i>  ${dataLeft[numberA].date}</p></div>
+                                <div><p class="title">${dataLeft[random[2]].name}</p></div>
+                                <div><p class="time pt-2"><i class="far fa-clock"></i>  ${dataLeft[random[2]].date}</p></div>
                             </div>
                         </div>
                         <div class="news__moive-title d-flex justify-content-between wow fadeInRightBig " data-wow-duration="0.8s" data-wow-offset="200">
                             <div class="news__moive-img">
-                                <img src="${dataLeft[numberB].img}" alt="">
+                                <img src="${dataLeft[random[3]].img}" alt="">
                             </div>
                             <div class="news_movie-img-title ">
-                                <div><p  class="title">${dataLeft[numberB].name}</p></div>
-                                <div><p class="time pt-2"> <i class="far fa-clock"></i> ${dataLeft[numberB].date}</p></div>
+                                <div><p  class="title">${dataLeft[random[3]].name}</p></div>
+                                <div><p class="time pt-2"> <i class="far fa-clock"></i> ${dataLeft[random[3]].date}</p></div>
                             </div>
                         </div>
                         <div class="news__moive-title d-flex justify-content-between wow fadeInRightBig" data-wow-duration="1.1s" data-wow-offset="150">
                             <div class="news__moive-img">
-                                <img src="${dataLeft[numberC].img}" alt="">
+                                <img src="${dataLeft[random[5]].img}" alt="">
                             </div>
                             <div class="news_movie-img-title ">
-                                <div><p  class="title">${dataLeft[numberC].name}</p></div>
-                                <div><p class="time pt-2"><i class="far fa-clock"></i> ${dataLeft[numberC].date}</p></div>
+                                <div><p  class="title">${dataLeft[random[5]].name}</p></div>
+                                <div><p class="time pt-2"><i class="far fa-clock"></i> ${dataLeft[random[5]].date}</p></div>
                             </div>
                         </div>
                         <div class="news__moive-title d-flex justify-content-between wow fadeInRightBig" data-wow-duration="1.4s" data-wow-offset="50">
                             <div class="news__moive-img">
-                                <img src="${dataLeft[numberD].img}" alt="">
+                                <img src="${dataLeft[random[8]].img}" alt="">
                             </div>
                             <div class="news_movie-img-title ">
-                                <div><p  class="title">${dataLeft[numberD].name}</p></div>
-                                <div><p class="time pt-2"><i class="far fa-clock"></i> ${dataLeft[numberD].date}</p></div>
+                                <div><p  class="title">${dataLeft[random[8]].name}</p></div>
+                                <div><p class="time pt-2"><i class="far fa-clock"></i> ${dataLeft[random[8]].date}</p></div>
                             </div>
                         </div>
 

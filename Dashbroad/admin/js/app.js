@@ -1,31 +1,37 @@
 // profile info
-$: firebase = firebase.firestore().collection("data_movie");
-let user = JSON.parse(localStorage.getItem("user"));
-if(!user.admin){
-  window.location.href = "/index.html"
-}
-async function infoUser() {
-  let profile = document.querySelector(".profile-pic");
-  profile.innerHTML = /*html*/ `
-    <div class="count-indicator">
-                  <img class="img-xs rounded-circle " src="${user.avatar}" alt="">
-                  <span class="count bg-success"></span>
-                </div>
-                <div class="profile-name">
-                  <h5 class="mb-0 font-weight-normal">${user.name}</h5>
-                  <span>ADMIN</span>
-    </div>`;
-  let profileDropdown = document.querySelector("#profileDropdown");
-  profileDropdown.innerHTML = /*html */ `
-    <div class="navbar-profile">
-                    <img class="img-xs rounded-circle" src="${user.avatar}" alt="">
-                    <p class="mb-0 d-none d-sm-block navbar-profile-name">${user.name}</p>
-                    <i class="mdi mdi-menu-down d-none d-sm-block"></i>
-    </div>
+if(user){
+  async function infoUser() {
+    let profile = document.querySelector(".profile-pic");
+    profile.innerHTML = /*html*/ `
+      <div class="count-indicator">
+                    <img class="img-xs rounded-circle " src="${user.avatar}" alt="">
+                    <span class="count bg-success"></span>
+                  </div>
+                  <div class="profile-name">
+                    <h5 class="mb-0 font-weight-normal">${user.name}</h5>
+                    <span>ADMIN</span>
+      </div>`;
+    let profileDropdown = document.querySelector("#profileDropdown");
+    profileDropdown.innerHTML = /*html */ `
+      <div class="navbar-profile">
+                      <img class="img-xs rounded-circle" src="${user.avatar}" alt="">
+                      <p class="mb-0 d-none d-sm-block navbar-profile-name">${user.name}</p>
+                      <i class="mdi mdi-menu-down d-none d-sm-block"></i>
+      </div>
     `;
+}
+  infoUser();
+
+  function rederect(){
+    window.location.href="/Dashbroad/admin/newReview.html";
+  }
+}
+// ONLINE USER
+
+async function renderMovie(){
   let previewList = document.querySelector("#list");
 
-  let respon = await firebase.get();
+  let respon = await firebase.firestore().collection("data_movie").get();
   // console.log(respon.docs[0].data())
         previewList.innerHTML = /*html */ `
                             <div class="preview-item border-bottom">
@@ -127,30 +133,6 @@ async function infoUser() {
                                       </div>
                                       </div>
         `;
-  }
-infoUser();
-// ONLINE USER
-
-
-// rederect 
-
-function rederect(){
-  window.location.href="/Dashbroad/admin/newReview.html";
 }
-
-//preloader
-window.addEventListener("load", () => {
-  const preload = document.querySelector(".preload");
-  preload.classList.add("preload-finish");
-});
-// scroll bar
-
-// let progress = document.querySelector("#progressbar");
-
-// let totalHeight = document.body.scrollHeight - window.innerHeight;
-
-// window.onscroll = function(){
-// let progressHeight = (window.pageYOffset / totalHeight) * 100;
-// progress.style.height = progressHeight + "%";
-// }
-// // 
+renderMovie();
+        // rederect 

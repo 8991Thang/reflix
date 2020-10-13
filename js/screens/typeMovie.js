@@ -167,12 +167,18 @@ let style = /*html*/`
 }
 .movie__items-detail > h2 > a{
     font-size: 20px;
-    color: #f29438;
     font-size: 18px;
-    text-transform : uppercase;
     text-decoration: none;
     margin:0;
     font-weight: 700;
+    cursor: pointer;
+    color: #f29438 !important;
+}
+.detail{
+    color: #fff !important;
+}
+.movie__items-detail > h2 > a:hover{
+    text-decoration: underline !important;
 }
 .movie__items-detail p {
     font-size: 16px;
@@ -215,34 +221,48 @@ class TypeMovie extends BaseComponent {
         `
         this.renderTypeMovie();
     }
-    async renderTypeMovie(){
+    async renderTypeMovie(rederect){
         let typeOfMovie = localStorage.getItem("type");
-        let data = [];
         let dbOfType = await firebase.firestore().collection("data_movie").where("type","==",typeOfMovie).get()
         for (let doc of dbOfType.docs){
-            data.push(doc.data())
-        }
-        data.forEach(x => {
             this._shadowRoot.querySelector('.item').innerHTML += /*html*/`
             <div class="movie__items">
                                     <div class="movie__items-poster">
-                                                        <a href=""> <img class="img-poster" src="${x.img}" alt="poster"></a>
+                                                        <a href=""> <img class="img-poster" src="${doc.data().img}" alt="poster"></a>
                                                         <div class="movie__items-poster-info">
-                                                        <a href="">Chi tiết</a>
-                                                        <a target="_blank" href="${x.trailer}">Trailer</a>
-                                                        <p><b>Thời lượng</b> : ${x.time} </p>
-                                                        <p><b>Thể Loại</b> : ${x.type} </p>
+                                                        <a name="${doc.data().name}" class="detail" >Chi tiết</a>
+                                                        <a target="_blank" href="${doc.data().trailer}">Trailer</a>
+                                                        <p><b>Thời lượng</b> : ${doc.data().time} </p>
+                                                        <p><b>Thể Loại</b> : ${doc.data().type} </p>
                                                     </div>
                                                 </div>
                                                 <div class="movie__items-detail">
-                                                    <h2><a href="">${x.name}</a></h2>
-                                                    <p><b>Ngày Khởi Chiếu :</b> ${x.date}</p>
+                                                    <h2><a class="title" >${doc.data().name}</a></h2>
+                                                    <p><b>Ngày Khởi Chiếu :</b> ${doc.data().date}</p>
                                     </div>
-            </div>
-
-            `
-        })
+            </div>`
+        }
         this._shadowRoot.querySelector(".title__find").innerText = typeOfMovie;
+        // rederect
+        this.rederect();
+    }
+    rederect(){
+        let detail = [...this._shadowRoot.querySelectorAll(".detail")];
+        detail.forEach(item => {
+            item.addEventListener("click",() => {
+                console.log(item.name)
+                localStorage.setItem("idMovie",item.name);
+                window.location.href = "/moviePage.html"
+            })
+        })
+        let title = [...this._shadowRoot.querySelectorAll(".title")];
+        title.forEach(item => {
+            item.addEventListener("click",() => {
+                console.log(item.name)
+                localStorage.setItem("idMovie",item.innerText);
+                window.location.href = "/moviePage.html"
+            })
+        })
     }
 }
 

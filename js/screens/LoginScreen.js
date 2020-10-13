@@ -181,7 +181,7 @@ class Login extends BaseComponent {
                     </div>
                     <div class="form-group">
                         <input type="submit" name="submit" id="submit" class="form-submit submit" value="Sign In"/>
-                        <a href="/register.index.html" class="submit-link submit btn-register">Sign Up</a>
+                        <a href="/index2.html#!/register" class="submit-link submit btn-register">Sign Up</a>
                     </div>
                 </form>
                 <div class="social">

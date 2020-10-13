@@ -1,3 +1,9 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    font-family: 'Quicksand', sans-serif ;
+}
 .form-review{
     width: 100%;
     padding-top : 100px;
@@ -57,7 +63,7 @@ label{
     justify-content: space-around !important;
 }
 .card-title{
-    height: 57px;
+    height: 60px;
 }
 .list-group-item{
     max-height:49px;

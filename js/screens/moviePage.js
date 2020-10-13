@@ -1,4 +1,5 @@
 import {BaseComponent} from '../screens/BaseComponent.js'
+import {shuffle} from '../screens/untils.js'
 const style = /*html*/ `
 <style>
 *{
@@ -6,6 +7,7 @@ const style = /*html*/ `
     padding: 0;
     box-sizing: border-box;
     font-family: 'Quicksand', sans-serif;
+    font-weight:bold;
 }
 a{
     list-style: none;
@@ -475,21 +477,17 @@ class MoviePage extends BaseComponent {
         for(let doc of moiveOpen.docs){
             dataRandow.push(doc.data());
         }
-
-        let oneRandom = Math.floor(Math.random()* dataRandow.length);
-        let twoRandom = Math.floor(Math.random()* dataRandow.length);
-        let threeRandom = Math.floor(Math.random()* dataRandow.length);
-        let fourRandom = Math.floor(Math.random()* dataRandow.length);
-        let fiveRandom = Math.floor(Math.random()* dataRandow.length);
-
+        let dataRandowNumber = Array.from(Array(dataRandow.length).keys());
+        let random = [];
+        random.push(shuffle(dataRandowNumber));
+        let random2 = [...shuffle(dataRandowNumber)]
         this._shadowRoot.querySelector(".list").innerHTML = /*html*/ `
-            <div id="${dataRandow[oneRandom].name}" class="poster" style="background-image: url('${dataRandow[oneRandom].imgblur}')"></div>
-            <div id="${dataRandow[twoRandom].name}"  class="poster" style="background-image: url('${dataRandow[twoRandom].imgblur}')"></div>
-            <div id="${dataRandow[threeRandom].name}"  class="poster" style="background-image: url('${dataRandow[threeRandom].imgblur}')"></div>
-            <div id="${dataRandow[fourRandom].name}"  class="poster" style="background-image: url('${dataRandow[fourRandom].imgblur}')"></div>
-            <div id="${dataRandow[fiveRandom].name}"  class="poster" style="background-image: url('${dataRandow[fiveRandom].imgblur}')"></div>
+            <div id="${dataRandow[random2[1]].name}" class="poster" style="background-image: url('${dataRandow[random2[1]].imgblur}')"></div>
+            <div id="${dataRandow[random2[2]].name}"  class="poster" style="background-image: url('${dataRandow[random2[2]].imgblur}')"></div>
+            <div id="${dataRandow[random2[3]].name}"  class="poster" style="background-image: url('${dataRandow[random2[3]].imgblur}')"></div>
+            <div id="${dataRandow[random2[5]].name}"  class="poster" style="background-image: url('${dataRandow[random2[5]].imgblur}')"></div>
+            <div id="${dataRandow[random2[4]].name}"  class="poster" style="background-image: url('${dataRandow[random2[4]].imgblur}')"></div>
         `
-
         let clickPoster = [...this._shadowRoot.querySelectorAll(".poster")];
         clickPoster.forEach(x => {
             x.addEventListener("click",() => {

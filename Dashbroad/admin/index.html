@@ -18,7 +18,7 @@
     <link rel="shortcut icon" type="image/png" href="/img/logo/movie-website-2055755-1733976.png">
 
     <!-- Layout styles -->
-    <link rel="stylesheet" href="/Dashbroad/admin/style.css">
+    <link rel="stylesheet" href="/Dashbroad/admin/css/style.css">
     <!-- End layout styles -->
   </head>
   <body>
@@ -27,7 +27,7 @@
       <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
           <a class="sidebar-brand brand-logo" href="index.html"><img src="/img/logo/l.png" alt="logo" /></a>
-          <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+          <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="#" alt="logo" /></a>
         </div>
         <ul class="nav">
           <li class="nav-item profile">
@@ -99,14 +99,6 @@
             </div>
           </li>
           <li class="nav-item menu-items">
-            <a class="nav-link" href="#">
-              <span class="menu-icon">
-                <i class="mdi mdi-playlist-play"></i>
-              </span>
-              <span class="menu-title">Form Elements</span>
-            </a>
-          </li>
-          <li class="nav-item menu-items">
             <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
               <span class="menu-icon">
                 <i class="mdi mdi-security"></i>
@@ -116,11 +108,9 @@
             </a>
             <div class="collapse" id="auth">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/blank-page.html"> Blank Page </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+                <li class="nav-item"> <a class="nav-link" href="/Dashbroad/admin/userAdmin.html"> Tổng Hợp  </a></li>
+                <li class="nav-item"> <a class="nav-link" href="#">Chỉnh Sửa </a></li>
+                <li class="nav-item"> <a class="nav-link" href="#">Phân Quyền</a></li>
               </ul>
             </div>
           </li>
@@ -139,7 +129,7 @@
         <!-- partial:partials/_navbar.html -->
         <nav class="navbar p-0 fixed-top d-flex flex-row">
           <div class="navbar-brand-wrapper d-flex d-lg-none align-items-center justify-content-center">
-            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="assets/images/logo-mini.svg" alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini" href="index.html"><img src="#" alt="logo" /></a>
           </div>
           <div class="navbar-menu-wrapper flex-grow d-flex align-items-stretch">
             <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
@@ -209,7 +199,7 @@
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
-                      <img src="assets/images/faces/face4.jpg" alt="image" class="rounded-circle profile-pic">
+                      <img src="#" alt="image" class="rounded-circle profile-pic">
                     </div>
                     <div class="preview-item-content">
                       <p class="preview-subject ellipsis mb-1">Mark send you a message</p>
@@ -219,7 +209,7 @@
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
-                      <img src="assets/images/faces/face2.jpg" alt="image" class="rounded-circle profile-pic">
+                      <img src="#" alt="image" class="rounded-circle profile-pic">
                     </div>
                     <div class="preview-item-content">
                       <p class="preview-subject ellipsis mb-1">Cregh send you a message</p>
@@ -229,7 +219,7 @@
                   <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
-                      <img src="assets/images/faces/face3.jpg" alt="image" class="rounded-circle profile-pic">
+                      <img src="" alt="image" class="rounded-circle profile-pic">
                     </div>
                     <div class="preview-item-content">
                       <p class="preview-subject ellipsis mb-1">Profile picture updated</p>
@@ -707,10 +697,22 @@
   firebase.initializeApp(firebaseConfig);
  // get status user information
 
+ let user = JSON.parse(localStorage.getItem("user"));
+if(user){
+async function adminUser(){
+  let adUser = await firebase.firestore().collection("users").where("email","==",user.email).get();
+      if (!adUser.docs[0].data().admin) {
+         window.location.href = "/index.html";
+         return;
+      }
+}
+adminUser();
+}
+if(!user){
+  window.location.href = "/index.html";
+}
 
 let statusUser = document.querySelector(".status");
-
-
 async function getUser(){
   let secondsTime = document.querySelector(".seconds-time");
   statusUser.innerHTML = '';  
@@ -795,6 +797,6 @@ async function renderCmt(){
 }
 renderCmt();
 </script>
-<script src="app.js"></script>
+<script src="/Dashbroad/admin/js/app.js"></script>
   </body>
 </html>

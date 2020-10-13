@@ -1,8 +1,6 @@
 let user = JSON.parse(localStorage.getItem("user"));
-if(!user.admin){
-  window.location.href = "/index.html"
-}
-let profile = document.querySelector(".profile-pic");
+if(user){
+  let profile = document.querySelector(".profile-pic");
 profile.innerHTML = /*html*/ `
   <div class="count-indicator">
                 <img class="img-xs rounded-circle " src="${user.avatar}" alt="">
@@ -20,6 +18,7 @@ profileDropdown.innerHTML = /*html */ `
                   <i class="mdi mdi-menu-down d-none d-sm-block"></i>
   </div>
   `;
+}
 
 // đăng bài review mới
 let formSumit = document.querySelector(".form-review");

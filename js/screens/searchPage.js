@@ -164,14 +164,18 @@ let style = /*html*/`
     width : 220px;
     text-align : center;
 }
-.movie__items-detail > h2 > a{
+.movie__items-detail > h2 {
+    cursor : pointer;
+    margin:0;
+    margin: 20px 0; 
     font-size: 20px;
     color: #f29438;
     font-size: 18px;
-    text-transform : uppercase;
     text-decoration: none;
-    margin:0;
     font-weight: 700;
+}
+.movie__items-detail > h2:hover{
+    text-decoration: underline;
 }
 .movie__items-detail p {
     font-size: 16px;
@@ -195,6 +199,9 @@ let style = /*html*/`
 }
 .card-title:hover{
     color:red;
+}
+.chitiet{
+    color:white !important;
 }
 </style>
 
@@ -239,6 +246,7 @@ class SearchMovie extends BaseComponent {
 
         // render Data search
         this.renderDataSearch();
+      
     }
 
     async renderDataSearch(){
@@ -275,14 +283,14 @@ class SearchMovie extends BaseComponent {
                 <div class="movie__items-poster">
                                         <a href=""> <img class="img-poster" src="${dbMoive.img}" alt="poster"></a>
                                         <div class="movie__items-poster-info">
-                                            <a href="">Chi tiết</a>
+                                            <a id="${dbMoive.name}" class="chitiet">Chi tiết</a>
                                             <a target="_blank" href="${dbMoive.trailer}">Trailer</a>
                                             <p><b>Thời lượng</b> : ${dbMoive.time} </p>
                                             <p><b>Thể Loại</b> :${dbMoive.type} </p>
                                         </div>
                                     </div>
                                     <div class="movie__items-detail">
-                                        <h2><a href="">${dbMoive.name}</a></h2>
+                                        <h2 class="title__"><a>${dbMoive.name}</a></h2>
                                         <p><b>Ngày Khởi Chiếu :</b> ${dbMoive.date}</p>
                                     </div>
                                 </div>`
@@ -317,8 +325,22 @@ class SearchMovie extends BaseComponent {
                 window.location.href = "/review.html"
             })
        }
+       let title = [...this._shadowRoot.querySelectorAll(".title__")];
+       for(let i = 0; i < title.length; i++){
+            title[i].addEventListener("click",() => {
+                localStorage.setItem('idMovie',title[i].innerText);
+                window.location.href = "/moviePage.html"
+            })
+       }
+        let chitiet = [...this._shadowRoot.querySelectorAll(".chitiet")];
+       for(let i = 0; i < titleReview.length; i++){
+            chitiet[i].addEventListener("click",() => {
+                localStorage.setItem('idMovie',chitiet[i].id);
+                window.location.href = "/moviePage.html"
+            })
+       }
+       
     }
-
 }
 
 window.customElements.define("search-movie",SearchMovie);
