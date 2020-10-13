@@ -1,5 +1,5 @@
 import { BaseComponent } from "../screens/BaseComponent.js";
-
+let dataImg = []; 
 const style = /*html*/ `
 <style>
 *{
@@ -194,27 +194,32 @@ a{
 	background-color:transparent;
 }
 .active{
+	width: 130px !important;
 	background-color: #ea3b92 !important;
 }
 
 .li-style:hover{
-	background-color: #ea3b92 !important;
+	
 }
 .li-style:hover .li-style a:after{	
 	visibility: visible;
 }
-.li-style a:after{
-	content: '';
-    transform: skewX(-15deg);
-    -webkit-transform: skewX(-15deg);
+.hv{
+	position:absolute;
+	width:0%;
+	height:3%;
+	bottom:0;
+	border-radius: 10px;
     background: #ea3b92;
-    position: absolute;
-    top: 0;
-    width: 29px;
-    right: -15px;
-    z-index: -1;
-    bottom: 0;
-	visibility: hidden;	
+	left:0;
+	z-index:-1;
+	opacity:0;
+	transition: all 0.5s ease;
+}
+.li-style:hover .hv{
+	opacity:1;
+	width:100%;
+
 }
 .active:after{
 	content: '';
@@ -270,7 +275,6 @@ a{
 	position: absolute;
 	list-style: none;
 	text-align: left;
-	width: 830px;
 	left: 0;
 	top: 105%;
 	visibility: hidden;
@@ -290,19 +294,20 @@ a{
     cursor: pointer;
 	display: block;
 }
-.sub-menu{
-	border-radius:8px;
-}
 .sub-menu li{
 	text-align: center;
 	line-height: 50px;
 	height: 70px;
 	width : 120px;
+	background-color: #ea3b92 !important;
+	margin:0;
+    color : white;
+
 }
 .sub-menu li:hover{
 	
     color : white;
-	background-color : rgb(105,105,105) !important;
+	background: #191025 !important;
 }
 .main-menu li .sub-menu li a {
 	display: block;
@@ -942,8 +947,8 @@ class Header extends BaseComponent {
 		<!-- Menu -->
 		<ul class="main-menu primary-menu">
 			<li><a href="/index.html" class="active">Trang Chủ </a></li>
-			<li class="li-style"><a href="/index2.html#!/review">Review Phim</a></li>
-			<li class="li-style"><a href="" class="arrow-down">Thể Loại</a>
+			<li class="li-style"><a href="/index2.html#!/review">Review Phim <span class="hv"></span></a></li>
+			<li class="li-style"><a href="" class="arrow-down">Thể Loại <span class="hv"></span></a>
 				<ul class="sub-menu">
 					<li class="type-movie" >Hành Động</li>
 					<li class="type-movie">Tình Cảm</li>
@@ -953,9 +958,9 @@ class Header extends BaseComponent {
 					<li class="type-movie">Kinh Dị</li>
 				</ul>
 			</li>
-			<li class="li-style"><a href="" class="arrow-down">News Movie</a>
+			<li class="li-style"><a href="#paral" class="arrow-down">News Movie <span class="hv"></span></a>
 			</li>
-			<li class="li-style"><a href="contact.html">Giới Thiệu Reflix</a></li>
+			<li class="li-style"><a href="contact.html">Giới Thiệu Reflix <span class="hv"></span></a></li>
 		</ul>
 	</nav>
 </div>
@@ -1007,36 +1012,36 @@ class Header extends BaseComponent {
 		</div>
   
 		<div class="profile-card-social">
-		  <a href="http://facebook.com/8991thang" class="profile-card-social__item facebook" target="_blank">
+		  <a href="https://lh3.googleusercontent.com/PKMJ3Guz6fCvoJPuIf0LrzdkN__8xBoOPDHBQUQ73VRfFslu8naBm-RpxF4ps3gVEZs" class="profile-card-social__item facebook" target="_blank">
 			<span class="icon-font">
 				<svg class="icon"><use xlink:href="#icon-facebook"></use></svg>
 			</span>
 		  </a>
   
-		  <a href="http://facebook.com/8991thang" class="profile-card-social__item twitter" target="_blank">
+		  <a href="https://lh3.googleusercontent.com/PKMJ3Guz6fCvoJPuIf0LrzdkN__8xBoOPDHBQUQ73VRfFslu8naBm-RpxF4ps3gVEZs" class="profile-card-social__item twitter" target="_blank">
 			<span class="icon-font">
 				<svg class="icon"><use xlink:href="#icon-twitter"></use></svg>
 			</span>
 		  </a>
   
-		  <a href="http://facebook.com/8991thang" class="profile-card-social__item instagram" target="_blank">
+		  <a href="https://lh3.googleusercontent.com/PKMJ3Guz6fCvoJPuIf0LrzdkN__8xBoOPDHBQUQ73VRfFslu8naBm-RpxF4ps3gVEZs" class="profile-card-social__item instagram" target="_blank">
 			<span class="icon-font">
 				<svg class="icon"><use xlink:href="#icon-instagram"></use></svg>
 			</span>
 		  </a>  
-		  <a href="http://facebook.com/8991thang" class="profile-card-social__item github" target="_blank">
+		  <a href="https://lh3.googleusercontent.com/PKMJ3Guz6fCvoJPuIf0LrzdkN__8xBoOPDHBQUQ73VRfFslu8naBm-RpxF4ps3gVEZs" class="profile-card-social__item github" target="_blank">
 			<span class="icon-font">
 				<svg class="icon"><use xlink:href="#icon-github"></use></svg>
 			</span>
 		  </a>
   
-		  <a href="http://facebook.com/8991thang" class="profile-card-social__item codepen" target="_blank">
+		  <a href="https://lh3.googleusercontent.com/PKMJ3Guz6fCvoJPuIf0LrzdkN__8xBoOPDHBQUQ73VRfFslu8naBm-RpxF4ps3gVEZs" class="profile-card-social__item codepen" target="_blank">
 			<span class="icon-font">
 				<svg class="icon"><use xlink:href="#icon-codepen"></use></svg>
 			</span>
 		  </a>
   
-		  <a href="http://facebook.com/8991thang" class="profile-card-social__item link" target="_blank">
+		  <a href="https://lh3.googleusercontent.com/PKMJ3Guz6fCvoJPuIf0LrzdkN__8xBoOPDHBQUQ73VRfFslu8naBm-RpxF4ps3gVEZs" class="profile-card-social__item link" target="_blank">
 			<span class="icon-font">
 				<svg class="icon"><use xlink:href="#icon-link"></use></svg>
 			</span>
@@ -1171,8 +1176,8 @@ class Header extends BaseComponent {
                     </div>
 				</div>
 				<div class="custom-file">
-				<input type="file" class="custom-file-input" id="img__upload" >
 				<label class="custom-file-label" for="img__upload" aria-describedby="inputGroupFileAddon02">Choose avatar image</label>
+				<input type="file" class="custom-file-input" id="img__upload" >
 			</div>
 			<div class="profile-card-ctr">
 			<button class="profile-card__button button--blue js-message-btn">Cancel</button>
@@ -1199,7 +1204,7 @@ class Header extends BaseComponent {
     // loc diem movie
 	// edit data user info
 	this.editUserInfo();
-    // dang xuat tai khoan;
+	// dang xuat tai khoan;
     this.logOut();
     //show menu user
     this.showUserMenu();
@@ -1210,7 +1215,6 @@ class Header extends BaseComponent {
 	//count like the movie
 	this.countLikeMovie();
 	// render img to base64
-	// this.uploadImg();
 	// fix nav
 	window.addEventListener("scroll",(e) => {
 		const data = JSON.parse(localStorage.getItem("user"));
@@ -1228,16 +1232,30 @@ class Header extends BaseComponent {
 			this._shadowRoot.querySelector('.user').classList.toggle("xoayngang",window.scrollY > 0)
 			this._shadowRoot.querySelector('.openModal').classList.toggle("margin-r",window.scrollY > 0)
 		}
-		
-		
-
 		if (data){
 			this._shadowRoot.querySelector('.user').classList.toggle("right",window.scrollY > 0)
 		}
 	})
 	// get value search input
 	this.getValueInputSearch();
-  }
+	// console.log(file)
+
+	this._shadowRoot.querySelector("#img__upload").addEventListener("change", readFile);
+	let srcImg = this._shadowRoot.querySelector('.edit__box-img');
+	function readFile() {
+		if (this.files && this.files[0]) {
+    
+			var FR= new FileReader();
+			
+			FR.addEventListener("load", function(e) {
+				  dataImg.push(e.target.result);
+				  srcImg.src = e.target.result;
+				  
+			});
+			FR.readAsDataURL( this.files[0] );
+		  }
+	  }
+}
   typeMovie() {
     let dataMovie = firebase.firestore().collection("data_movie");
     const subMenu = this._shadowRoot.querySelector(".sub-menu");
@@ -1415,6 +1433,7 @@ class Header extends BaseComponent {
 			this._shadowRoot.querySelector('.edit__user-name').innerText = userData.name;
 			var idUser = x.docs[0].id;
 			let btnUpdate = this._shadowRoot.querySelector(".update-prf");
+
 			btnUpdate.addEventListener("click", async ()=> {
 				const  mailformat = /^(?:[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])$/;
 				if(!this._shadowRoot.querySelector(".first__name").value || !this._shadowRoot.querySelector(".last__name").value
@@ -1445,23 +1464,25 @@ class Header extends BaseComponent {
 					this._shadowRoot.querySelector(".psw__confirm").value = "";
 					return;
 				}
+				if(dataImg.length < 0){
+					alert("Mời Bạn Upload ảnh avatar !!");
+					return;
+				}
 				let editDataUser ={
 					name:this._shadowRoot.querySelector(".first__name").value + " " + this._shadowRoot.querySelector(".last__name").value,
 					email: this._shadowRoot.querySelector(".email__edit").value,
 					address: this._shadowRoot.querySelector(".address__edit").value,
-					avatar: "https://www.kindpng.com/picc/m/24-248253_user-profile-default-image-png-clipart-png-download.png",
+					avatar: dataImg[0],
 					password: this._shadowRoot.querySelector(".psw__edit").value,
 					admin : adminSet,
 				}
 				let dbUser = await firebase.firestore().collection("users").doc(idUser).update(editDataUser)
 				.then(async function(){
-					console.log(data)
 					let dbfirebase = await firebase.firestore().collection("status")
 					.where("user","==",data.email)
 					.get()
 					.then( async (y) => {
 						let statusIdNew = y.docs[0].id;
-						console.log(y.docs[0].id)
 						await firebase.firestore().collection("status").doc(statusIdNew).update({
 							user: editDataUser.email,
 						})
@@ -1480,26 +1501,7 @@ class Header extends BaseComponent {
 			})
 		})
 		}
-		
 	}
-	// uploadImg(){
-	// 		let	fileImg = this._shadowRoot.getElementById("img__upload");
-	// 		console.log(file)
-	// 		fileImg.addEventListener("change",() => {
-	// 			const reader = new FileReader();
-	// 			reader.addEventListener(
-	// 			  "load",
-	// 			  function () {
-	// 				this._shadowRoot.querySelector('.img__edit').src = reader.result;
-	// 				localStorage.setItem("img-edit", reader.result);
-	// 			  },
-	// 			  false
-	// 			);
-	// 			if(fileImg){
-	// 			  reader.readAsDataURL(fileImg);
-	// 			}
-	// 		})
-	// }
 	getValueInputSearch(){
 		let input = this._shadowRoot.querySelector(".input__search");
 		let btnSearch = this._shadowRoot.querySelector(".btn__search");

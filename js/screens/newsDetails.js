@@ -104,7 +104,7 @@ const style = /*html*/ `
 }
 .content img {
     width:150px;
-    height:90px;
+    height:90px;    
 }
 .news__title{
     width : 70%;

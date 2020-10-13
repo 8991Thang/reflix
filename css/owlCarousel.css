@@ -133,6 +133,10 @@ Html, body
     color: white;
     font-style: italic;
 }
+.name__movie{
+    color: #f1b722 !important;
+    font-weight: 700;
+}
 .movie__items-detail:first-child {
     padding-top : 10px;
 }

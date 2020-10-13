@@ -16,26 +16,23 @@ const style = /*html */ `
             background-image: url(/img/background/luoi.png);
             background-color: #cf256f;
         }
-        a {
+        a{
             color: #ffffff;
             text-decoration: none;
             
         }
         a:hover {
-            color: #F13847;
             transition: 0.3s;
             text-decoration: underline;
         }
         .news-container{
             width: 1170px;
             margin: auto;
-            <!-- background-color: #CCC1AE; -->
-            
         }
         .news-container-header{
             font-size: 20px;
             font-style: italic;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
             display: flex;
             
             
@@ -183,23 +180,21 @@ class NewsMovie extends BaseComponent {
 
     render() {
         this._shadowRoot.innerHTML = /*html */ `
+            <!-- owlCarousel -->
+            <script src="https://code.jquery.com/jquery-3.5.1.js"></script> 
+            <!-- wow-js -->
+            <script src='https://cdn.rawgit.com/matthieua/WOW/1.0.1/dist/wow.min.js'></script>
+            <link rel='stylesheet' href='https://cdn.rawgit.com/daneden/animate.css/v3.1.0/animate.min.css'>
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
             ${style}
             <div class="container">
 
                 <div class="news-container">
 
-                    <div class="news-container-header">
+                    <div class="news-container-header wow bounceInUp "data-wow-offset="100 " data-wow-duration="1s">
                         <div id="paral"></div>
-
                         <a >ACTRESS UPDATE</a>
                     </div>
-                
-                    <div div class="news-container-content">
-                       
-                        <a href="#">ACTRESS UPDATE</a>
-                    </div>
-                
                     <div div class="news-container-content">
                     </div>
 

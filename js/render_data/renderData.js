@@ -89,7 +89,7 @@ async function renderReview(){
             <img src="${dataArr[random[0]].img}" alt="joker">
         </div>
         <div class="img__info position-absolute d-flex flex-column justify-content-around pl-4">
-            <p>Review</p>
+            <p class="review">Review</p>
             <a href="/review.html" class="img__title">
                 <span class="name__review">${dataArr[random[0]].name} </span>
             </a>
@@ -103,7 +103,7 @@ async function renderReview(){
     </div>
     <div class="news__img-footer d-flex">
         <div class="news__img-footer-total">
-            <div><img src="${dataArr[random[1]].img}" alt="" ></div>
+            <div class="hv" ><img src="${dataArr[random[1]].img}" alt="" ></div>
             <span class="review">Review</span>
             <a href="/review.html" class="name__review">${dataArr[random[1]].name}</a>
 
@@ -113,7 +113,7 @@ async function renderReview(){
             </div>
         </div>
         <div class="news__img-footer-total">
-            <div><img src="${dataArr[random[8]].img}" alt="" ></div>
+            <div  class="hv"><img src="${dataArr[random[8]].img}" alt="" ></div>
             <span class="review">Review</span>
             <a href="/review.html" class="name__review">${dataArr[random[8]].name}</a>
 
@@ -123,7 +123,7 @@ async function renderReview(){
             </div>
         </div>
         <div class="news__img-footer-total">
-            <div><img src="${dataArr[random[6]].img}" alt="" ></div>
+            <div  class="hv"><img src="${dataArr[random[6]].img}" alt="" ></div>
             <span class="review">Review</span>
             <a href="/review.html" class="name__review">${dataArr[random[6]].name}</a>
             <div class="news__img-footer-time">

@@ -6,7 +6,7 @@ position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: opacity 0s ease-in-out 0.3s;
+  transition: opacity 0s ease-in-out 0.5s;
   transition-duration: 0.3s;
   background-image: url('/img/icons/source.gif');
   background-repeat: no-repeat; 

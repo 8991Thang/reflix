@@ -2,6 +2,9 @@
     font-family: 'Quicksand', sans-serif;
     font-weight: bold;
 }
+html {
+    scroll-behavior: smooth;
+}
 .total{
     color : white;
     width: 100vw;
@@ -19,8 +22,12 @@ a:hover{
     text-decoration: none;
 
 }
+.name__review{
+    color: #f1b722 !important;
+    margin: 10px 0;
+}
 .name__review:hover{
-    color:red;
+    text-decoration:underline;
 }
 .row{
     width: 100%;
@@ -226,8 +233,15 @@ a:hover{
     transition: all 0.5s ease;
 
 }
-.review:hover{
-    transform: skewX(20deg);
+.hv{
+    cursor: pointer;
+}
+.news__img-footer-total:hover .review{
+    transform: skewX(20deg) !important;
+}
+.news__img-center:hover .review{
+    transform: skewX(20deg) !important;
+
 }
 .row{
     padding-bottom: 100px;
@@ -251,3 +265,7 @@ a:hover{
 .name__movie:hover{
     text-decoration:underline;
 }
+.event__new li:hover{
+    cursor: pointer;
+    text-decoration:underline;
+};
