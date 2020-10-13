@@ -13,10 +13,5 @@ import "../screens/reviewPage.js"
 import "../screens/suggestReview.js"
 import "../screens/moviePage.js"
 import "../screens/NewsMovie.js"
-<<<<<<< HEAD
 import "../screens/newsDetails.js"
 import "../../router/router.js"
-
-
-// import "./router.js"
->>>>>>> 1983e1bc82f44a1139698264047f7018d45c7a57
