@@ -77,7 +77,7 @@ class IntroSelection extends BaseComponent {
             infinite: true,
             speed: 500,
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 1,
           };
         this._shadowRoot.innerHTML = /*html*/`
         ${style}
