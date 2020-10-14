@@ -35,14 +35,14 @@ async function renderSlice(){
     nameMovie.forEach(i => {
         i.addEventListener("click",() => {
             localStorage.setItem("idMovie", i.innerText);
-            window.location.href = "/.moviePage.html"
+            window.location.href = "/moviePage.html"
         })
     })
     let idNew = [...document.querySelectorAll(".click")];
     idNew.forEach(i => {
         i.addEventListener("click",() => {
             localStorage.setItem("idMovie", i.id);
-            window.location.href = "/.moviePage.html"
+            window.location.href = "/moviePage.html"
         })
     })
 }
@@ -216,7 +216,7 @@ async function renderLeftReview(){
         i.addEventListener("click",() =>{
             localStorage.setItem("idMovie",i.innerText);
             console.log(i.innerText);
-            window.location.href = "/.moviePage.html"
+            window.location.href = "/moviePage.html"
         })
     })
 }
