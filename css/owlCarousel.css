@@ -230,33 +230,6 @@ Html, body
     filter: blur(40px)
 }
 
-h6{
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background-size: cover;
-    background-image: url('../img/icons/heart.png');
-    pointer-events: none;
-    transform:translate(-50%,-50%);
-    animation: mousemove 2s linear infinite;
-    z-index: 9999999999999999;
-}
-
-@keyframes mousemove {
-    0%
-    {
-        transform:translate(-50%,-50%);
-        opacity: 1;
-        filter: hue-rotate(0deg);
-    }
-    100%
-    {
-        transform:translate(-50%,-1000%);
-        opacity: 0;
-        filter: hue-rotate(720deg)
-
-    }
-}
 .title:hover{
     cursor: pointer;
     text-decoration:underline;

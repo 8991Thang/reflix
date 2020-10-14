@@ -912,16 +912,16 @@ class Header extends BaseComponent {
 	<div class="edit-nav">
 	<div class="">
 	<a href="/index.html" class="site-logo">
-		<img src="/img/logo/logo2.png" alt="reflix">
+		<img src="./img/logo/logo2.png" alt="reflix">
 	</a>
 </div>
 <div class="header-warp">
 	<div>
 	<div class="header-social d-flex justify-content-between align-items-center">
 	<div class="popcorn">
-	<img src="/img/logo/Firstfear-Whistlepuff-Video-file.ico" alt="">
-	<img src="/img/logo/img_560158.png" alt="">
-		<img src="/img/logo/popcorn-movie-time-512.webp" alt="">
+	<img src="./img/logo/Firstfear-Whistlepuff-Video-file.ico" alt="">
+	<img src="./img/logo/img_560158.png" alt="">
+		<img src="./img/logo/popcorn-movie-time-512.webp" alt="">
 	</div>
 	<div>
 		<p>Follow us:</p>

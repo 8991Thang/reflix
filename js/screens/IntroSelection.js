@@ -6,7 +6,7 @@ const style = /*html*/`
     box-sizing: border-box;
     }
 .container{
-    background-image: url("/img/background/bg.jpg") !important;
+    background-image: url("./img/background/bg.jpg") !important;
     width : 100vw;
     height : auto ;
     

@@ -9,7 +9,7 @@ html {
     color : white;
     width: 100vw;
     height: auto;
-    background-image: url("/img/background/bg.jpg");
+    background-image: url("./img/background/bg.jpg");
 }
 li{
     list-style : none;
