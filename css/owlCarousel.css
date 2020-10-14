@@ -12,7 +12,7 @@ Html, body
 .center{
     width : 100vw;
     height : 80%;
-    background-image: url("/img/background/luoi.png");
+    background-image: url("../img/background/luoi.png");
     background-color :#cf256f; 
 }
 .center__movie{
@@ -235,7 +235,7 @@ h6{
     width: 100px;
     height: 100px;
     background-size: cover;
-    background-image: url('/img/icons/heart.png');
+    background-image: url('../img/icons/heart.png');
     pointer-events: none;
     transform:translate(-50%,-50%);
     animation: mousemove 2s linear infinite;
