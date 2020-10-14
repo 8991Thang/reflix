@@ -13,7 +13,7 @@ const style = /*html */ `
             height: 100%;
             padding-top:55px;
             padding-bottom: 50px;
-            background-image: url(/img/background/luoi.png);
+            background-image: url(./img/background/luoi.png);
             background-color: #cf256f;
         }
         a{
