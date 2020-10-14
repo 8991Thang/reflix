@@ -87,19 +87,19 @@ class IntroSelection extends BaseComponent {
                         <div class="row"></div>
                         <div class="slideshow-container">
                         <div class="mySlides fade">
-                                <img src="/img/background/1920x1080-11.jpg"/>
+                                <img src="./img/background/1920x1080-11.jpg"/>
                             </div>
                             <div class="mySlides fade">
-                                <img src="/img/background/publicpreview-1600225693.jpg"/>
+                                <img src="./img/background/publicpreview-1600225693.jpg"/>
                             </div>
                             <div class="mySlides fade">
-                                <img src="/img/background/kkokoko.jpg" />
+                                <img src="./img/background/kkokoko.jpg" />
                             </div>
                             <div class="mySlides fade">
-                                <img src="/img/background/1920x1080-min.png">
+                                <img src="./img/background/1920x1080-min.png">
                             </div>
                             <div class="mySlides fade">
-                                <img src="/img/background/ac n.jpg">
+                                <img src="./img/background/ac n.jpg">
                             </div>
                         </div>
                         <br>
