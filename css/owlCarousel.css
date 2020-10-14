@@ -12,7 +12,7 @@ Html, body
 .center{
     width : 100vw;
     height : 80%;
-    background-image: url("./img/background/luoi.png");
+    background-image: url("../img/background/luoi.png");
     background-color :#cf256f; 
 }
 .center__movie{
